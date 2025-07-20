@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WorkVerse | Em Desenvolvimento</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#faf5ff',
+                            100: '#f3e8ff',
+                            200: '#e9d5ff',
+                            300: '#d8b4fe',
+                            400: '#c084fc',
+                            500: '#a855f7',
+                            600: '#9333ea',
+                            700: '#7e22ce',
+                            800: '#6b21a8',
+                            900: '#581c87',
+                        },
+                        dark: {
+                            900: '#0f0f0f',
+                            800: '#181818',
+                            700: '#212121',
+                        },
+                        creative: {
+                            purple: '#8A2BE2',
+                            pink: '#FF10F0',
+                            blue: '#00B4D8'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        creative: ['"Space Grotesk"', 'sans-serif']
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 6s ease-in-out infinite',
+                        'build': 'build 4s ease-in-out infinite',
+                        'crane': 'crane 8s ease-in-out infinite'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            background-color: #f9f9f9;
+        }
+        
+        .creative-heading {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(90deg, #8A2BE2 0%, #FF10F0 50%, #00B4D8 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .hero-gradient {
+            background: radial-gradient(circle at 70% 20%, rgba(138, 43, 226, 0.1) 0%, rgba(255, 255, 255, 0) 60%);
+        }
+        
+        .creative-card {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            background: linear-gradient(145deg, #ffffff 0%, #f8f8f8 100%);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+        }
+        
+        .creative-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: 0 15px 60px rgba(138, 43, 226, 0.15);
+        }
+        
+        .nav-link::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #8A2BE2 0%, #FF10F0 100%);
+            transition: width 0.4s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        /* Animação de Construção */
+        @keyframes build {
+            0% { transform: translateY(0) rotate(0); }
+            50% { transform: translateY(-10px) rotate(5deg); }
+            100% { transform: translateY(0) rotate(0); }
+        }
+        
+        @keyframes crane {
+            0% { transform: translateX(0); }
+            50% { transform: translateX(30px); }
+            100% { transform: translateX(0); }
+        }
+        
+        .build-animation {
+            animation: build 4s ease-in-out infinite;
+        }
+        
+        .crane-animation {
+            animation: crane 8s ease-in-out infinite;
+        }
+        
+        /* Floating Animation */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        /* Creative Shapes */
+        .creative-shape {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.15;
+            z-index: -1;
+        }
+        
+        .shape-purple {
+            width: 300px;
+            height: 300px;
+            background: #8A2BE2;
+            top: 10%;
+            left: 5%;
+        }
+        
+        .shape-pink {
+            width: 400px;
+            height: 400px;
+            background: #FF10F0;
+            bottom: 10%;
+            right: 5%;
+        }
+        
+        .shape-blue {
+            width: 250px;
+            height: 250px;
+            background: #00B4D8;
+            top: 50%;
+            left: 30%;
+        }
+        
+        /* Construction Elements */
+        .construction-grid {
+            background-image: 
+                linear-gradient(rgba(138, 43, 226, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(138, 43, 226, 0.1) 1px, transparent 1px);
+            background-size: 40px 40px;
+        }
+        
+        .cone {
+            width: 0;
+            height: 0;
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+            border-bottom: 40px solid #FF9800;
+        }
+        
+        .countdown-item {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 12px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body class="bg-creative-50">
+    <!-- Creative Background Shapes -->
+    <div class="creative-shape shape-purple floating"></div>
+    <div class="creative-shape shape-pink"></div>
+    <div class="creative-shape shape-blue"></div>
+    
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white/95 backdrop-blur-md z-50 border-b border-gray-100 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center">
+                    <a href="#" class="flex items-center">
+                        <span class="text-xl sm:text-2xl font-bold text-dark-900 creative-heading">Work<span class="gradient-text">Verse</span></span>
+                    </a>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="beneficios.html" class="nav-link text-dark-900 font-medium hover:text-primary-600">Serviços</a>
+                    <a href="criando.html" class="nav-link text-dark-900 font-medium hover:text-primary-600">Portfólio</a>
+                    <a href="sobre.html" class="nav-link text-dark-900 font-medium hover:text-primary-600">Sobre</a>
+                    <a href="#contato" class="bg-gradient-to-r from-creative-purple to-creative-pink text-white px-6 py-2 rounded-full font-medium hover:opacity-90 transition duration-300">Contato</a>
+                </div>
+                
+                <div class="md:hidden">
+                    <button id="menu-toggle" class="text-dark-900">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white py-3 px-4 border-t border-gray-100 shadow-lg">
+            <div class="flex flex-col space-y-3">
+                <a href="beneficios.html" class="text-dark-900 font-medium hover:text-primary-600 py-2">Serviços</a>
+                <a href="criando.html" class="text-dark-900 font-medium hover:text-primary-600 py-2">Portfólio</a>
+                <a href="sobre.html" class="text-dark-900 font-medium hover:text-primary-600 py-2">Sobre</a>
+                <a href="#contato" class="bg-gradient-to-r from-creative-purple to-creative-pink text-white px-6 py-2 rounded-full font-medium hover:opacity-90 transition duration-300 text-center mt-2">Contato</a>
+            </div>
+        </div>
+    </nav>  
+  
+    <!-- Hero Section - Construction -->
+    <section class="min-h-screen flex items-center pt-16 pb-24 sm:pt-32 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        <div class="max-w-7xl mx-auto relative w-full">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div class="text-center lg:text-left">
+                    <span class="inline-block px-4 py-1 bg-gradient-to-r from-creative-purple/10 to-creative-pink/10 text-creative-purple rounded-full mb-6">
+                        Em desenvolvimento
+                    </span>
+                    <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight text-dark-900 mb-6 creative-heading">
+                        Estamos Construindo Algo <span class="gradient-text">Incrível</span>
+                    </h1>
+                    <p class="text-lg text-gray-600 mb-8 max-w-lg mx-auto lg:mx-0">
+                        Nossa nova plataforma está em desenvolvimento. Estamos trabalhando duro para trazer uma experiência digital revolucionária para você!
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                        <a href="index.html" class="bg-gradient-to-r from-creative-purple to-creative-pink text-white px-8 py-3 rounded-full font-medium hover:opacity-90 transition duration-300 text-center shadow-lg hover:shadow-xl">
+                            Inicio
+                        </a>
+                        <a href="mailto:contato@workverse.com" class="border-2 border-dark-900 text-dark-900 px-8 py-3 rounded-full font-medium hover:bg-dark-900 hover:text-white transition duration-300 text-center">
+                            Enviar Email
+                        </a>
+                    </div>
+                    
+                    <div class="mt-12 flex flex-wrap justify-center lg:justify-start gap-6">
+                        <div class="flex items-center bg-white p-4 rounded-xl shadow-sm">
+                            <div class="bg-green-100 p-2 rounded-lg mr-3 text-green-600">
+                                <i class="fas fa-hard-hat"></i>
+                            </div>
+                            <div>
+                                <p class="font-medium text-sm">Desenvolvimento</p>
+                                <p class="text-xs text-gray-500">Em progresso</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-center bg-white p-4 rounded-xl shadow-sm">
+                            <div class="bg-blue-100 p-2 rounded-lg mr-3 text-blue-600">
+                                <i class="fas fa-rocket"></i>
+                            </div>
+                            <div>
+                                <p class="font-medium text-sm">Lançamento</p>
+                                <p class="text-xs text-gray-500">Em breve</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="relative hidden lg:block">
+                    <div class="construction-grid w-full h-96 rounded-3xl relative overflow-hidden border-2 border-dashed border-gray-200 flex items-center justify-center">
+                        <!-- Crane -->
+                        <div class="absolute top-0 left-1/2 transform -translate-x-1/2 crane-animation">
+                            <div class="w-4 h-32 bg-gray-700 mx-auto"></div>
+                            <div class="w-32 h-4 bg-gray-800 mt-2 relative">
+                                <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-8 h-12 bg-red-500 rounded-t-md"></div>
+                                <div class="absolute -bottom-12 left-1/2 transform -translate-x-1/2 w-2 h-12 bg-gray-700"></div>
+                            </div>
+                        </div>
+                        
+                        <!-- Building Structure -->
+                        <div class="relative">
+                            <div class="w-48 h-64 bg-gray-100 border-2 border-gray-300 rounded-lg relative overflow-hidden">
+                                <!-- Construction elements -->
+                                <div class="absolute top-4 left-4 build-animation">
+                                    <div class="w-10 h-6 bg-yellow-400"></div>
+                                </div>
+                                <div class="absolute top-12 right-6 build-animation" style="animation-delay: 0.5s">
+                                    <div class="w-8 h-10 bg-blue-400"></div>
+                                </div>
+                                <div class="absolute bottom-8 left-10 build-animation" style="animation-delay: 1s">
+                                    <div class="w-12 h-8 bg-red-400"></div>
+                                </div>
+                                <div class="absolute bottom-16 right-10 build-animation" style="animation-delay: 1.5s">
+                                    <div class="w-6 h-14 bg-green-400"></div>
+                                </div>
+                            </div>
+                            
+                            <!-- Worker -->
+                            <div class="absolute -bottom-10 left-12 build-animation" style="animation-delay: 2s">
+                                <div class="w-6 h-6 bg-gray-800 rounded-full"></div>
+                                <div class="w-8 h-10 bg-blue-600 rounded-sm mt-1"></div>
+                            </div>
+                            
+                            <!-- Construction Cone -->
+                            <div class="absolute bottom-4 right-6">
+                                <div class="cone"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-xl shadow-xl z-10">
+                        <div class="flex items-center">
+                            <div class="bg-gradient-to-r from-creative-purple to-creative-pink p-3 rounded-full mr-4 text-white">
+                                <i class="fas fa-tools text-xl"></i>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-500">Status</p>
+                                <p class="font-bold text-dark-900">Em Construção</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Countdown Section -->
+    <section class="py-16 px-4 sm:px-6 lg:px-8 bg-gradient-to-br from-creative-purple/5 to-creative-blue/5">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-dark-900 mb-4 creative-heading">Contagem Regressiva para o Lançamento</h2>
+                <p class="text-gray-600 max-w-xl mx-auto">Estamos finalizando os últimos detalhes para trazer a melhor experiência para você.</p>
+            </div>
+            
+            <div class="grid grid-cols-2 sm:grid-cols-4 gap-6">
+                <div class="countdown-item p-6 text-center">
+                    <div class="text-4xl sm:text-5xl font-bold text-creative-purple mb-2" id="days">14</div>
+                    <div class="text-gray-600">Dias</div>
+                </div>
+                
+                <div class="countdown-item p-6 text-center">
+                    <div class="text-4xl sm:text-5xl font-bold text-creative-pink mb-2" id="hours">08</div>
+                    <div class="text-gray-600">Horas</div>
+                </div>
+                
+                <div class="countdown-item p-6 text-center">
+                    <div class="text-4xl sm:text-5xl font-bold text-creative-blue mb-2" id="minutes">45</div>
+                    <div class="text-gray-600">Minutos</div>
+                </div>
+                
+                <div class="countdown-item p-6 text-center">
+                    <div class="text-4xl sm:text-5xl font-bold text-gray-700 mb-2" id="seconds">30</div>
+                    <div class="text-gray-600">Segundos</div>
+                </div>
+            </div>
+            
+            <div class="mt-12 bg-white rounded-2xl p-6 sm:p-8 text-center">
+                <h3 class="text-xl font-bold text-dark-900 mb-4 creative-heading">Fique atento ao lançamento!</h3>
+                <div class="max-w-md mx-auto">
+                    <div class="flex flex-col items-center gap-3">
+                        <div class="bg-gradient-to-r from-creative-purple to-creative-pink text-white px-6 py-3 rounded-lg font-medium shadow-lg">
+                            Em breve você poderá se cadastrar para receber novidades.
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-500 mt-3">Acompanhe nossas redes sociais para não perder o lançamento e novidades exclusivas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="mt-12 bg-gradient-to-r from-dark-900 to-gray-800 rounded-2xl p-8 text-white relative overflow-hidden">
+            <div class="absolute -right-20 -top-20 w-64 h-64 bg-white/10 rounded-full"></div>
+            <div class="absolute -left-20 -bottom-20 w-64 h-64 bg-white/10 rounded-full"></div>
+            
+            <div class="relative z-10 text-center max-w-3xl mx-auto">
+                <h3 class="text-2xl md:text-3xl font-bold mb-4 creative-heading">Enqunto isso, não fique para trás em 2025!</h3>
+                <p class="text-white/90 mb-6">Nossos clientes que migraram para plataformas SSR (Server-Side Rendering) reportaram um aumento médio de 65% na velocidade de carregamento e 40% mais conversões.</p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="https://wa.me/5541984761252?text=Olá,%20quero%20saber%20mais%20sobre%20os%20benefícios%20do%20SSR%20para%20meu%20negócio" 
+                       class="bg-white text-dark-900 px-8 py-3 rounded-full font-medium hover:bg-gray-100 transition duration-300 shadow-lg hover:shadow-xl flex items-center justify-center">
+                        <i class="fab fa-whatsapp mr-2 text-lg"></i> Quero SSR para meu site
+                    </a>
+                    <a href="beneficios.html" class="border-2 border-white text-white px-8 py-3 rounded-full font-medium hover:bg-white hover:text-dark-900 transition duration-300">
+                        Ver diferenciais
+                    </a>
+                </div>
+                
+                <p class="text-sm text-white/70 mt-4">
+                    <i class="fas fa-lock mr-1"></i> Garantia de satisfação ou seu dinheiro de volta nos primeiros 30 dias
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark-900 text-white py-12 sm:py-16 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 sm:gap-12">
+                <div>
+                    <h3 class="text-2xl font-bold mb-6 creative-heading">Work<span class="text-creative-purple">Verse</span></h3>
+                    <p class="text-gray-400 mb-6">Transformando ideias em experiências digitais extraordinárias.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                            <i class="fab fa-behance"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-white mb-6 creative-heading">Serviços Futuros</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Design Criativo</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Desenvolvimento Web</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">E-Commerce Premium</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Aplicativos Mobile</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-white mb-6 creative-heading">Empresa</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Sobre Nós</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Portfólio (em breve)</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Blog (em breve)</a></li>
+                        <li><a href="#contato" class="text-gray-400 hover:text-white transition duration-300">Contato</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-white mb-6 creative-heading">Contato</h4>
+                    <address class="text-gray-400 not-italic">
+                        <p class="mb-3">Av. Paulista, 1000</p>
+                        <p class="mb-3">São Paulo - SP, 01310-100</p>
+                        <p class="mb-3">contato@workverse.com</p>
+                        <p>+55 (11) 98765-4321</p>
+                    </address>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 mb-4 md:mb-0">© 2025 WorkVerse. Todos os direitos reservados.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">Política de Privacidade</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">Termos de Serviço</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script>
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+        
+        // Countdown Timer
+        function updateCountdown() {
+            // Set your launch date here (year, monthIndex, day, hours, minutes)
+            const launchDate = new Date(2025, 9, 0, 0, 0, 0);
+            const now = new Date();
+            const diff = launchDate - now;
+            
+            // Time calculations
+            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+            
+            // Update the HTML
+            document.getElementById('days').textContent = days.toString().padStart(2, '0');
+            document.getElementById('hours').textContent = hours.toString().padStart(2, '0');
+            document.getElementById('minutes').textContent = minutes.toString().padStart(2, '0');
+            document.getElementById('seconds').textContent = seconds.toString().padStart(2, '0');
+        }
+        
+        // Update countdown every second
+        setInterval(updateCountdown, 1000);
+        updateCountdown(); // Initial call
+        
+        // Animation on scroll
+        const animateOnScroll = () => {
+            const elements = document.querySelectorAll('.creative-card');
+            
+            elements.forEach(element => {
+                const elementPosition = element.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.2;
+                
+                if (elementPosition < screenPosition) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        };
+        
+        // Set initial state for animated elements
+        document.querySelectorAll('.creative-card').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        });
+        
+        // Run animation on scroll
+        window.addEventListener('scroll', animateOnScroll);
+        // Run once on load
+        window.addEventListener('load', animateOnScroll);
+    </script>
+</body>
+</html>
