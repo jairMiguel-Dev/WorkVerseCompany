@@ -1,9 +1,87 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" itemscope itemtype="http://schema.org/WebPage">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WorkVerse | Desenvolvimento Web Criativo</title>
+    <meta name="description" content="WorkVerse - Desenvolvimento Web Criativo em Curitiba. Criação de sites profissionais, e-commerce e aplicativos mobile com design exclusivo e tecnologia de ponta.">
+    <meta name="keywords" content="desenvolvimento web, criação de sites, e-commerce, aplicativos mobile, design digital, Curitiba, marketing digital, SEO">
+    <meta name="author" content="WorkVerse">
+    <meta name="robots" content="index, follow">
+    <meta name="revisit-after" content="7 days">
+    <meta name="geo.region" content="BR-PR">
+    <meta name="geo.placename" content="Curitiba">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.workverse.com.br" />
+    
+    <!-- Open Graph / Social Media -->
+    <meta property="og:title" content="WorkVerse | Desenvolvimento Web Criativo em Curitiba">
+    <meta property="og:description" content="Criação de sites profissionais, e-commerce e aplicativos mobile com design exclusivo e tecnologia de ponta.">
+    <meta property="og:url" content="https://www.workverse.com.br">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://www.workverse.com.br/img/workverse-social-share.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:locale" content="pt_BR">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="WorkVerse | Desenvolvimento Web Criativo em Curitiba">
+    <meta name="twitter:description" content="Criação de sites profissionais, e-commerce e aplicativos mobile com design exclusivo e tecnologia de ponta.">
+    <meta name="twitter:image" content="https://www.workverse.com.br/img/workverse-social-share.jpg">
+    
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    
+    <!-- Schema.org markup for Google -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ProfessionalService",
+      "name": "WorkVerse",
+      "image": "https://www.workverse.com.br/img/workverse-logo.jpg",
+      "@id": "https://www.workverse.com.br",
+      "url": "https://www.workverse.com.br",
+      "telephone": "+5541984761252",
+      "priceRange": "R$1000 - R$50000",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Av. Sete de Setembro",
+        "addressLocality": "Curitiba",
+        "addressRegion": "PR",
+        "postalCode": "80060-000",
+        "addressCountry": "BR"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "-25.4284",
+        "longitude": "-49.2733"
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday"
+        ],
+        "opens": "09:00",
+        "closes": "18:00"
+      },
+      "sameAs": [
+        "https://www.instagram.com/workverse",
+        "https://www.linkedin.com/company/workverse",
+        "https://www.facebook.com/workverse"
+      ]
+    }
+    </script>
+    
+    <title>WorkVerse | Desenvolvimento Web Criativo em Curitiba - Criação de Sites Profissionais</title>
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script>
@@ -172,24 +250,24 @@
     <div class="creative-shape shape-blue"></div>
     
     <!-- Navigation -->
-    <nav class="fixed w-full bg-white/95 backdrop-blur-md z-50 border-b border-gray-100 shadow-sm">
+    <nav class="fixed w-full bg-white/95 backdrop-blur-md z-50 border-b border-gray-100 shadow-sm" aria-label="Navegação principal">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between h-16 items-center">
                 <div class="flex items-center">
-                    <a href="#" class="flex items-center">
+                    <a href="https://www.workverse.com.br" class="flex items-center" aria-label="WorkVerse - Página inicial">
                         <span class="text-xl sm:text-2xl font-bold text-dark-900 creative-heading">Work<span class="gradient-text">Verse</span></span>
                     </a>
                 </div>
                 
                 <div class="hidden md:flex items-center space-x-8">
-                    <a href="beneficios.html" class="nav-link text-dark-900 font-medium hover:text-primary-600">Serviços</a>
-                    <a href="criando.html" class="nav-link text-dark-900 font-medium hover:text-primary-600">Portfólio</a>
-                    <a href="sobre.html" class="nav-link text-dark-900 font-medium hover:text-primary-600">Sobre</a>
-                    <a href="#contato" class="bg-gradient-to-r from-creative-purple to-creative-pink text-white px-6 py-2 rounded-full font-medium hover:opacity-90 transition duration-300">Contato</a>
+                    <a href="beneficios.html" class="nav-link text-dark-900 font-medium hover:text-primary-600" title="Conheça nossos serviços">Serviços</a>
+                    <a href="criando.html" class="nav-link text-dark-900 font-medium hover:text-primary-600" title="Veja nosso portfólio">Portfólio</a>
+                    <a href="sobre.html" class="nav-link text-dark-900 font-medium hover:text-primary-600" title="Sobre a WorkVerse">Sobre</a>
+                    <a href="#contato" class="bg-gradient-to-r from-creative-purple to-creative-pink text-white px-6 py-2 rounded-full font-medium hover:opacity-90 transition duration-300" title="Entre em contato">Contato</a>
                 </div>
                 
                 <div class="md:hidden">
-                    <button id="menu-toggle" class="text-dark-900">
+                    <button id="menu-toggle" class="text-dark-900" aria-label="Abrir menu mobile" aria-expanded="false" aria-controls="mobile-menu">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
                         </svg>
@@ -199,12 +277,12 @@
         </div>
         
         <!-- Mobile menu -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white py-3 px-4 border-t border-gray-100 shadow-lg">
+        <div id="mobile-menu" class="hidden md:hidden bg-white py-3 px-4 border-t border-gray-100 shadow-lg" aria-hidden="true">
             <div class="flex flex-col space-y-3">
-                <a href="beneficios.html" class="text-dark-900 font-medium hover:text-primary-600 py-2">Serviços</a>
-                <a href="criando.html" class="text-dark-900 font-medium hover:text-primary-600 py-2">Portfólio</a>
-                <a href="sobre.html" class="text-dark-900 font-medium hover:text-primary-600 py-2">Sobre</a>
-                <a href="#contato" class="bg-gradient-to-r from-creative-purple to-creative-pink text-white px-6 py-2 rounded-full font-medium hover:opacity-90 transition duration-300 text-center mt-2">Contato</a>
+                <a href="beneficios.html" class="text-dark-900 font-medium hover:text-primary-600 py-2" title="Nossos serviços">Serviços</a>
+                <a href="criando.html" class="text-dark-900 font-medium hover:text-primary-600 py-2" title="Nosso portfólio">Portfólio</a>
+                <a href="sobre.html" class="text-dark-900 font-medium hover:text-primary-600 py-2" title="Sobre nós">Sobre</a>
+                <a href="#contato" class="bg-gradient-to-r from-creative-purple to-creative-pink text-white px-6 py-2 rounded-full font-medium hover:opacity-90 transition duration-300 text-center mt-2" title="Fale conosco">Contato</a>
             </div>
         </div>
     </nav>
@@ -214,36 +292,37 @@
     <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between">
         <div class="flex items-center mb-2 sm:mb-0">
             <div class="bg-white/20 p-2 rounded-full mr-3">
-                <i class="fas fa-bolt"></i>
+                <i class="fas fa-bolt" aria-hidden="true"></i>
             </div>
             <p class="font-medium">PROMOÇÃO RELÂMPAGO: <span class="font-bold">15% OFF</span> em projetos com início até 30/07/2025!</p>
         </div>
-        <a href="https://wa.me/5541984761252?text=Olá,%20quero%20aproveitar%20o%20desconto%20relâmpago%20de%2025%25" 
-           class="bg-white text-red-600 px-4 py-1 rounded-full font-bold text-sm hover:bg-gray-100 transition duration-300 flex items-center">
-            Garantir desconto <i class="fas fa-arrow-right ml-1"></i>
+        <a href="https://wa.me/5541984761252?text=Olá,%20quero%20aproveitar%20o%20desconto%20relâmpago%20de%2015%25" 
+           class="bg-white text-red-600 px-4 py-1 rounded-full font-bold text-sm hover:bg-gray-100 transition duration-300 flex items-center"
+           title="Garantir desconto de 15%">
+            Garantir desconto <i class="fas fa-arrow-right ml-1" aria-hidden="true"></i>
         </a>
     </div>
-    <button onclick="this.parentElement.remove()" class="absolute top-1 right-2 text-white hover:text-gray-200">
-        <i class="fas fa-times"></i>
+    <button onclick="this.parentElement.remove()" class="absolute top-1 right-2 text-white hover:text-gray-200" aria-label="Fechar banner">
+        <i class="fas fa-times" aria-hidden="true"></i>
     </button>
 </div>
     
     <!-- Hero Section -->
-    <section class="pt-24 pb-12 sm:pt-32 sm:pb-20 px-4 sm:px-6 lg:px-8 hero-gradient overflow-hidden">
+    <section class="pt-24 pb-12 sm:pt-32 sm:pb-20 px-4 sm:px-6 lg:px-8 hero-gradient overflow-hidden" aria-labelledby="main-heading">
         <div class="max-w-7xl mx-auto relative">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
                 <div>
-                    <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight text-dark-900 mb-6 creative-heading">
+                    <h1 id="main-heading" class="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight text-dark-900 mb-6 creative-heading">
                         <span class="gradient-text">Criatividade</span> que Transforma Negócios
                     </h1>
                     <p class="text-lg text-gray-600 mb-8 max-w-lg">
                         Na WorkVerse, combinamos design inovador com tecnologia de ponta para criar experiências digitais memoráveis que geram resultados tangíveis.
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4">
-                        <a href="#contato" class="bg-gradient-to-r from-creative-purple to-creative-pink text-white px-8 py-3 rounded-full font-medium hover:opacity-90 transition duration-300 text-center shadow-lg hover:shadow-xl">
+                        <a href="#contato" class="bg-gradient-to-r from-creative-purple to-creative-pink text-white px-8 py-3 rounded-full font-medium hover:opacity-90 transition duration-300 text-center shadow-lg hover:shadow-xl" title="Inicie seu projeto conosco">
                             Inicie seu Projeto
                         </a>
-                        <a href="criando.html" class="border-2 border-dark-900 text-dark-900 px-8 py-3 rounded-full font-medium hover:bg-dark-900 hover:text-white transition duration-300 text-center">
+                        <a href="criando.html" class="border-2 border-dark-900 text-dark-900 px-8 py-3 rounded-full font-medium hover:bg-dark-900 hover:text-white transition duration-300 text-center" title="Veja nossos trabalhos">
                             Ver Nossos Trabalhos
                         </a>
                     </div>
@@ -251,19 +330,19 @@
                     <div class="mt-12 flex items-center space-x-6">
                         <div class="flex items-center">
                             <div class="flex -space-x-3">
-                                <img src="https://randomuser.me/api/portraits/women/44.jpg" class="w-10 h-10 rounded-full border-2 border-white" alt="Team member">
-                                <img src="https://randomuser.me/api/portraits/men/32.jpg" class="w-10 h-10 rounded-full border-2 border-white" alt="Team member">
-                                <img src="https://randomuser.me/api/portraits/women/68.jpg" class="w-10 h-10 rounded-full border-2 border-white" alt="Team member">
+                                <img src="https://randomuser.me/api/portraits/women/44.jpg" class="w-10 h-10 rounded-full border-2 border-white" alt="Membro da equipe WorkVerse" loading="lazy">
+                                <img src="https://randomuser.me/api/portraits/men/32.jpg" class="w-10 h-10 rounded-full border-2 border-white" alt="Membro da equipe WorkVerse" loading="lazy">
+                                <img src="https://randomuser.me/api/portraits/women/68.jpg" class="w-10 h-10 rounded-full border-2 border-white" alt="Membro da equipe WorkVerse" loading="lazy">
                             </div>
                             <div class="ml-4">
                                 <p class="text-sm font-medium text-dark-900">+3 projetos criados</p>
                                 <div class="flex items-center">
                                     <div class="text-yellow-400 mr-1 text-xs">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
+                                        <i class="fas fa-star" aria-hidden="true"></i>
+                                        <i class="fas fa-star" aria-hidden="true"></i>
+                                        <i class="fas fa-star" aria-hidden="true"></i>
+                                        <i class="fas fa-star" aria-hidden="true"></i>
+                                        <i class="fas fa-star" aria-hidden="true"></i>
                                     </div>
                                     <span class="text-xs text-gray-500">5.0 (42 avaliações)</span>
                                 </div>
@@ -273,11 +352,11 @@
                 </div>
                 
                 <div class="relative hidden lg:block">
-                    <img src="./img/ChatGPT Image 19 de jul. de 2025, 21_13_51.png" alt="Design criativo" class="w-full h-auto rounded-3xl shadow-2xl floating" style="animation-delay: 1s;">
+                    <img src="./img/ChatGPT Image 19 de jul. de 2025, 21_13_51.png" alt="Design criativo de site pela WorkVerse" class="w-full h-auto rounded-3xl shadow-2xl floating" style="animation-delay: 1s;" loading="lazy">
                     <div class="absolute -bottom-6 -left-6 bg-white p-4 rounded-xl shadow-xl z-10">
                         <div class="flex items-center">
                             <div class="bg-gradient-to-r from-creative-purple to-creative-pink p-3 rounded-full mr-4 text-white">
-                                <i class="fas fa-trophy text-xl"></i>
+                                <i class="fas fa-trophy text-xl" aria-hidden="true"></i>
                             </div>
                             <div>
                                 <p class="text-sm text-gray-500">Digital Solution</p>
@@ -289,7 +368,7 @@
                     <div class="absolute -top-6 -right-6 bg-white p-4 rounded-xl shadow-xl z-10">
                         <div class="flex items-center">
                             <div class="bg-gradient-to-r from-creative-blue to-cyan-400 p-3 rounded-full mr-4 text-white">
-                                <i class="fas fa-lightbulb text-xl"></i>
+                                <i class="fas fa-lightbulb text-xl" aria-hidden="true"></i>
                             </div>
                             <div>
                                 <p class="text-sm text-gray-500">Soluções</p>
@@ -303,49 +382,52 @@
     </section>
 
     <!-- Por que ter uma plataforma Web? -->
-<section class="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 bg-white">
+<section class="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 bg-white" aria-labelledby="platform-benefits-heading">
     <div class="max-w-7xl mx-auto">
         <div class="text-center mb-16">
             <span class="text-gradient bg-gradient-to-r from-creative-purple to-creative-pink bg-clip-text text-transparent font-medium">VANTAGEM COMPETITIVA</span>
-            <h2 class="text-3xl md:text-5xl font-bold text-dark-900 mt-4 creative-heading">Por que sua empresa precisa de uma plataforma web agora?</h2>
+            <h2 id="platform-benefits-heading" class="text-3xl md:text-5xl font-bold text-dark-900 mt-4 creative-heading">Por que sua empresa precisa de uma plataforma web agora?</h2>
             <p class="text-gray-600 max-w-2xl mx-auto mt-6">Em um mundo onde 85% dos consumidores pesquisam online antes de comprar, não ter uma presença digital é deixar dinheiro na mesa.</p>
         </div>
         
         <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
             <!-- Item 1 -->
-            <div class="creative-card p-8 rounded-2xl border border-gray-100 relative overflow-hidden">
+            <div class="creative-card p-8 rounded-2xl border border-gray-100 relative overflow-hidden" itemscope itemtype="http://schema.org/Service">
+                <meta itemprop="serviceType" content="Web Design Profissional"/>
                 <div class="absolute top-0 right-0 w-16 h-16 bg-gradient-to-r from-creative-purple to-creative-pink opacity-10 rounded-bl-full"></div>
                 <div class="bg-gradient-to-r from-creative-purple to-creative-pink w-14 h-14 rounded-lg flex items-center justify-center mb-6 text-white">
-                    <i class="fas fa-chart-line text-2xl"></i>
+                    <i class="fas fa-chart-line text-2xl" aria-hidden="true"></i>
                 </div>
-                <h3 class="text-xl font-bold text-dark-900 mb-3 creative-heading">Credibilidade Imediata</h3>
-                <p class="text-gray-600 mb-6">75% dos usuários julgam a credibilidade de uma empresa pelo design do seu site. Um design profissional aumenta instantaneamente a confiança no seu negócio.</p>
+                <h3 class="text-xl font-bold text-dark-900 mb-3 creative-heading" itemprop="name">Credibilidade Imediata</h3>
+                <p class="text-gray-600 mb-6" itemprop="description">75% dos usuários julgam a credibilidade de uma empresa pelo design do seu site. Um design profissional aumenta instantaneamente a confiança no seu negócio.</p>
                 <div class="bg-gray-100 px-4 py-2 rounded-lg">
                     <p class="text-sm text-gray-600"><span class="font-bold text-creative-purple">Oferta Especial:</span> Apenas 3 vagas para projetos com início imediato este mês.</p>
                 </div>
             </div>
             
             <!-- Item 2 -->
-            <div class="creative-card p-8 rounded-2xl border border-gray-100 relative overflow-hidden">
+            <div class="creative-card p-8 rounded-2xl border border-gray-100 relative overflow-hidden" itemscope itemtype="http://schema.org/Service">
+                <meta itemprop="serviceType" content="Site 24/7"/>
                 <div class="absolute top-0 right-0 w-16 h-16 bg-gradient-to-r from-creative-blue to-cyan-400 opacity-10 rounded-bl-full"></div>
                 <div class="bg-gradient-to-r from-creative-blue to-cyan-400 w-14 h-14 rounded-lg flex items-center justify-center mb-6 text-white">
-                    <i class="fas fa-clock text-2xl"></i>
+                    <i class="fas fa-clock text-2xl" aria-hidden="true"></i>
                 </div>
-                <h3 class="text-xl font-bold text-dark-900 mb-3 creative-heading">Disponibilidade 24/7</h3>
-                <p class="text-gray-600 mb-6">Seu negócio aberto 24 horas por dia, 7 dias por semana, sem custos adicionais. 30% das vendas online acontecem fora do horário comercial.</p>
+                <h3 class="text-xl font-bold text-dark-900 mb-3 creative-heading" itemprop="name">Disponibilidade 24/7</h3>
+                <p class="text-gray-600 mb-6" itemprop="description">Seu negócio aberto 24 horas por dia, 7 dias por semana, sem custos adicionais. 30% das vendas online acontecem fora do horário comercial.</p>
                 <div class="bg-gray-100 px-4 py-2 rounded-lg">
-                    <p class="text-sm text-gray-600"><span class="font-bold text-creative-blue">Última chance:</span> Promoção de lançamento com 15% de desconto válida até [data].</p>
+                    <p class="text-sm text-gray-600"><span class="font-bold text-creative-blue">Última chance:</span> Promoção de lançamento com 15% de desconto válida até 30/07/2025.</p>
                 </div>
             </div>
             
             <!-- Item 3 -->
-            <div class="creative-card p-8 rounded-2xl border border-gray-100 relative overflow-hidden">
+            <div class="creative-card p-8 rounded-2xl border border-gray-100 relative overflow-hidden" itemscope itemtype="http://schema.org/Service">
+                <meta itemprop="serviceType" content="Alcance Global"/>
                 <div class="absolute top-0 right-0 w-16 h-16 bg-gradient-to-r from-creative-pink to-purple-500 opacity-10 rounded-bl-full"></div>
                 <div class="bg-gradient-to-r from-creative-pink to-purple-500 w-14 h-14 rounded-lg flex items-center justify-center mb-6 text-white">
-                    <i class="fas fa-globe-americas text-2xl"></i>
+                    <i class="fas fa-globe-americas text-2xl" aria-hidden="true"></i>
                 </div>
-                <h3 class="text-xl font-bold text-dark-900 mb-3 creative-heading">Alcance Global</h3>
-                <p class="text-gray-600 mb-6">Amplie seu mercado além da sua localidade física. Sites com SSR (Server-Side Rendering) têm 40% mais retenção de usuários.</p>
+                <h3 class="text-xl font-bold text-dark-900 mb-3 creative-heading" itemprop="name">Alcance Global</h3>
+                <p class="text-gray-600 mb-6" itemprop="description">Amplie seu mercado além da sua localidade física. Sites com SSR (Server-Side Rendering) têm 40% mais retenção de usuários.</p>
                 <div class="bg-gray-100 px-4 py-2 rounded-lg">
                     <p class="text-sm text-gray-600"><span class="font-bold text-creative-pink">Exclusivo:</span> Pacote SSR com otimização para SEO incluída (vagas limitadas).</p>
                 </div>
@@ -353,9 +435,10 @@
         </div>
         
         <div class="text-center mt-12">
-            <a href="https://wa.me/5511987654321?text=Olá,%20quero%20saber%20mais%20sobre%20as%20vagas%20limitadas%20para%20desenvolvimento%20web" 
-               class="bg-gradient-to-r from-creative-purple to-creative-pink text-white px-8 py-4 rounded-full font-medium hover:opacity-90 transition duration-300 inline-flex items-center shadow-lg hover:shadow-xl">
-                <i class="fab fa-whatsapp mr-2 text-xl"></i> Garantir minha vaga agora
+            <a href="https://wa.me/5541984761252?text=Olá,%20quero%20saber%20mais%20sobre%20as%20vagas%20limitadas%20para%20desenvolvimento%20web" 
+               class="bg-gradient-to-r from-creative-purple to-creative-pink text-white px-8 py-4 rounded-full font-medium hover:opacity-90 transition duration-300 inline-flex items-center shadow-lg hover:shadow-xl"
+               title="Garantir minha vaga agora">
+                <i class="fab fa-whatsapp mr-2 text-xl" aria-hidden="true"></i> Garantir minha vaga agora
             </a>
             <p class="text-sm text-gray-500 mt-3">Apenas 3 vagas restantes para início imediato</p>
         </div>
@@ -363,54 +446,57 @@
 </section>
     
     <!-- Serviços Section -->
-    <section id="servicos" class="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 bg-white">
+    <section id="servicos" class="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 bg-white" aria-labelledby="services-heading">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-16">
                 <span class="text-gradient bg-gradient-to-r from-creative-purple to-creative-pink bg-clip-text text-transparent font-medium">NOSSA EXPERTISE</span>
-                <h2 class="text-3xl md:text-5xl font-bold text-dark-900 mt-4 creative-heading">Soluções Criativas Sob Medida</h2>
+                <h2 id="services-heading" class="text-3xl md:text-5xl font-bold text-dark-900 mt-4 creative-heading">Soluções Criativas Sob Medida</h2>
                 <p class="text-gray-600 max-w-2xl mx-auto mt-6">Desenvolvemos experiências digitais únicas que combinam inovação, tecnologia e design impactante.</p>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Serviço 1 -->
-                <div class="creative-card p-8 rounded-2xl border border-gray-100 relative overflow-hidden">
+                <div class="creative-card p-8 rounded-2xl border border-gray-100 relative overflow-hidden" itemscope itemtype="http://schema.org/Service">
+                    <meta itemprop="serviceType" content="Design Exclusivo"/>
                     <div class="absolute top-0 right-0 w-16 h-16 bg-gradient-to-r from-creative-purple to-creative-pink opacity-10 rounded-bl-full"></div>
                     <div class="bg-gradient-to-r from-creative-purple to-creative-pink w-14 h-14 rounded-lg flex items-center justify-center mb-6 text-white">
-                        <i class="fas fa-paint-brush text-2xl"></i>
+                        <i class="fas fa-paint-brush text-2xl" aria-hidden="true"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-dark-900 mb-3 creative-heading">Design Exclusivo</h3>
-                    <p class="text-gray-600 mb-6">Interfaces que contam a história da sua marca com personalidade e estilo único, garantindo diferenciação no mercado.</p>
-                    <a href="#" class="text-creative-purple font-medium flex items-center group">
+                    <h3 class="text-xl font-bold text-dark-900 mb-3 creative-heading" itemprop="name">Design Exclusivo</h3>
+                    <p class="text-gray-600 mb-6" itemprop="description">Interfaces que contam a história da sua marca com personalidade e estilo único, garantindo diferenciação no mercado.</p>
+                    <a href="servicos/design-exclusivo.html" class="text-creative-purple font-medium flex items-center group" title="Saiba mais sobre Design Exclusivo" itemprop="url">
                         Saiba mais
-                        <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition duration-300"></i>
+                        <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition duration-300" aria-hidden="true"></i>
                     </a>
                 </div>
                 
                 <!-- Serviço 2 -->
-                <div class="creative-card p-8 rounded-2xl border border-gray-100 relative overflow-hidden">
+                <div class="creative-card p-8 rounded-2xl border border-gray-100 relative overflow-hidden" itemscope itemtype="http://schema.org/Service">
+                    <meta itemprop="serviceType" content="Desenvolvimento Ágil"/>
                     <div class="absolute top-0 right-0 w-16 h-16 bg-gradient-to-r from-creative-blue to-cyan-400 opacity-10 rounded-bl-full"></div>
                     <div class="bg-gradient-to-r from-creative-blue to-cyan-400 w-14 h-14 rounded-lg flex items-center justify-center mb-6 text-white">
-                        <i class="fas fa-code text-2xl"></i>
+                        <i class="fas fa-code text-2xl" aria-hidden="true"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-dark-900 mb-3 creative-heading">Desenvolvimento Ágil</h3>
-                    <p class="text-gray-600 mb-6">Tecnologia de ponta com metodologias ágeis para entregas rápidas sem comprometer a qualidade.</p>
-                    <a href="#" class="text-creative-blue font-medium flex items-center group">
+                    <h3 class="text-xl font-bold text-dark-900 mb-3 creative-heading" itemprop="name">Desenvolvimento Ágil</h3>
+                    <p class="text-gray-600 mb-6" itemprop="description">Tecnologia de ponta com metodologias ágeis para entregas rápidas sem comprometer a qualidade.</p>
+                    <a href="servicos/desenvolvimento-agil.html" class="text-creative-blue font-medium flex items-center group" title="Saiba mais sobre Desenvolvimento Ágil" itemprop="url">
                         Saiba mais
-                        <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition duration-300"></i>
+                        <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition duration-300" aria-hidden="true"></i>
                     </a>
                 </div>
                 
                 <!-- Serviço 3 -->
-                <div class="creative-card p-8 rounded-2xl border border-gray-100 relative overflow-hidden">
+                <div class="creative-card p-8 rounded-2xl border border-gray-100 relative overflow-hidden" itemscope itemtype="http://schema.org/Service">
+                    <meta itemprop="serviceType" content="E-Commerce Premium"/>
                     <div class="absolute top-0 right-0 w-16 h-16 bg-gradient-to-r from-creative-pink to-purple-500 opacity-10 rounded-bl-full"></div>
                     <div class="bg-gradient-to-r from-creative-pink to-purple-500 w-14 h-14 rounded-lg flex items-center justify-center mb-6 text-white">
-                        <i class="fas fa-shopping-cart text-2xl"></i>
+                        <i class="fas fa-shopping-cart text-2xl" aria-hidden="true"></i>
                     </div>
-                    <h3 class="text-xl font-bold text-dark-900 mb-3 creative-heading">E-Commerce Premium</h3>
-                    <p class="text-gray-600 mb-6">Lojas virtuais de alto desempenho com experiências de compra que encantam e convertem.</p>
-                    <a href="#" class="text-creative-pink font-medium flex items-center group">
+                    <h3 class="text-xl font-bold text-dark-900 mb-3 creative-heading" itemprop="name">E-Commerce Premium</h3>
+                    <p class="text-gray-600 mb-6" itemprop="description">Lojas virtuais de alto desempenho com experiências de compra que encantam e convertem.</p>
+                    <a href="servicos/ecommerce-premium.html" class="text-creative-pink font-medium flex items-center group" title="Saiba mais sobre E-Commerce Premium" itemprop="url">
                         Saiba mais
-                        <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition duration-300"></i>
+                        <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition duration-300" aria-hidden="true"></i>
                     </a>
                 </div>
             </div>
@@ -418,11 +504,11 @@
     </section>
   
     <!-- O que você perde sem um site profissional -->
-<section class="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 bg-gray-50">
+<section class="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 bg-gray-50" aria-labelledby="loss-heading">
     <div class="max-w-7xl mx-auto">
         <div class="text-center mb-16">
             <span class="text-gradient bg-gradient-to-r from-red-500 to-pink-600 bg-clip-text text-transparent font-medium">ALERTA</span>
-            <h2 class="text-3xl md:text-5xl font-bold text-dark-900 mt-4 creative-heading">O que sua empresa está perdendo sem um site profissional?</h2>
+            <h2 id="loss-heading" class="text-3xl md:text-5xl font-bold text-dark-900 mt-4 creative-heading">O que sua empresa está perdendo sem um site profissional?</h2>
             <p class="text-gray-600 max-w-2xl mx-auto mt-6">Enquanto você hesita, seus concorrentes já estão conquistando seus clientes online.</p>
         </div>
         
@@ -432,7 +518,7 @@
                 <p class="text-gray-600 mb-6">81% dos consumidores pesquisam online antes de fazer uma compra. Sem um site, você está invisível para a maioria dos seus clientes em potencial.</p>
                 <div class="flex items-center bg-red-50 p-4 rounded-lg">
                     <div class="bg-red-100 p-3 rounded-full mr-4 text-red-500">
-                        <i class="fas fa-exclamation-triangle"></i>
+                        <i class="fas fa-exclamation-triangle" aria-hidden="true"></i>
                     </div>
                     <p class="text-sm text-red-600"><span class="font-bold">Urgente:</span> A cada dia sem site, você perde em média <span class="font-bold">87%</span> das vendas potenciais.</p>
                 </div>
@@ -443,7 +529,7 @@
                 <p class="text-gray-600 mb-6">Empresas com sites profissionais convertem 5x mais que aquelas com presença digital básica ou inexistente.</p>
                 <div class="flex items-center bg-purple-50 p-4 rounded-lg">
                     <div class="bg-purple-100 p-3 rounded-full mr-4 text-purple-500">
-                        <i class="fas fa-tachometer-alt"></i>
+                        <i class="fas fa-tachometer-alt" aria-hidden="true"></i>
                     </div>
                     <p class="text-sm text-purple-600"><span class="font-bold">Solução:</span> Nossos projetos entregam em média <span class="font-bold">+99%</span> de aumento no tráfego em 3 meses.</p>
                 </div>
@@ -460,16 +546,17 @@
                 
                 <div class="flex flex-col sm:flex-row gap-4 justify-center">
                     <a href="https://wa.me/5541984761252?text=Olá,%20quero%20saber%20mais%20sobre%20os%20benefícios%20do%20SSR%20para%20meu%20negócio" 
-                       class="bg-white text-dark-900 px-8 py-3 rounded-full font-medium hover:bg-gray-100 transition duration-300 shadow-lg hover:shadow-xl flex items-center justify-center">
-                        <i class="fab fa-whatsapp mr-2 text-lg"></i> Quero SSR para meu site
+                       class="bg-white text-dark-900 px-8 py-3 rounded-full font-medium hover:bg-gray-100 transition duration-300 shadow-lg hover:shadow-xl flex items-center justify-center"
+                       title="Quero SSR para meu site">
+                        <i class="fab fa-whatsapp mr-2 text-lg" aria-hidden="true"></i> Quero SSR para meu site
                     </a>
-                    <a href="beneficios.html" class="border-2 border-white text-white px-8 py-3 rounded-full font-medium hover:bg-white hover:text-dark-900 transition duration-300">
+                    <a href="beneficios.html" class="border-2 border-white text-white px-8 py-3 rounded-full font-medium hover:bg-white hover:text-dark-900 transition duration-300" title="Ver diferenciais">
                         Ver diferenciais
                     </a>
                 </div>
                 
                 <p class="text-sm text-white/70 mt-4">
-                    <i class="fas fa-lock mr-1"></i> Garantia de satisfação ou seu dinheiro de volta nos primeiros 30 dias
+                    <i class="fas fa-lock mr-1" aria-hidden="true"></i> Garantia de satisfação ou seu dinheiro de volta nos primeiros 30 dias
                 </p>
             </div>
         </div>
@@ -477,76 +564,79 @@
 </section>
     
     <!-- Portfólio Section -->
-    <section id="portfolio" class="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 bg-gray-50">
+    <section id="portfolio" class="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 bg-gray-50" aria-labelledby="portfolio-heading">
         <div class="max-w-7xl mx-auto">
             <div class="text-center mb-16">
                 <span class="text-gradient bg-gradient-to-r from-creative-purple to-creative-pink bg-clip-text text-transparent font-medium">PORTFÓLIO</span>
-                <h2 class="text-3xl md:text-5xl font-bold text-dark-900 mt-4 creative-heading">Nossos Projetos Criativos</h2>
+                <h2 id="portfolio-heading" class="text-3xl md:text-5xl font-bold text-dark-900 mt-4 creative-heading">Nossos Projetos Criativos</h2>
                 <p class="text-gray-600 max-w-2xl mx-auto mt-6">Cada projeto é uma oportunidade de inovar e superar expectativas.</p>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 <!-- Projeto 1 -->
-                <div class="creative-card rounded-2xl overflow-hidden group relative">
-                    <img src="./img/image.png" alt="Plataforma de Gestão" class="w-full h-64 object-cover transition duration-500 group-hover:scale-105">
+                <div class="creative-card rounded-2xl overflow-hidden group relative" itemscope itemtype="http://schema.org/CreativeWork">
+                    <meta itemprop="creator" content="WorkVerse"/>
+                    <img src="./img/image.png" alt="Plataforma de Gestão Ilumina" class="w-full h-64 object-cover transition duration-500 group-hover:scale-105" loading="lazy" itemprop="image">
                     <div class="absolute inset-0 bg-gradient-to-t from-dark-900/90 via-dark-900/40 to-transparent flex flex-col justify-end p-8">
-                        <h3 class="text-xl font-bold text-white mb-2 creative-heading">Ilumina</h3>
-                        <p class="text-gray-300 mb-4">Modelo de Leading Page para artistas...</p>
-                        <button onclick="openModal('modal1')" class="text-white font-medium flex items-center group text-sm bg-gradient-to-r from-creative-purple to-creative-pink px-4 py-2 rounded-full self-start">
+                        <h3 class="text-xl font-bold text-white mb-2 creative-heading" itemprop="name">Ilumina</h3>
+                        <p class="text-gray-300 mb-4" itemprop="description">Modelo de Leading Page para artistas...</p>
+                        <button onclick="openModal('modal1')" class="text-white font-medium flex items-center group text-sm bg-gradient-to-r from-creative-purple to-creative-pink px-4 py-2 rounded-full self-start" title="Ver detalhes do projeto Ilumina">
                             Ver Detalhes
-                            <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition duration-300"></i>
+                            <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition duration-300" aria-hidden="true"></i>
                         </button>
                     </div>
                 </div>
                 
                 <!-- Projeto 2 -->
-                <div class="creative-card rounded-2xl overflow-hidden group relative">
-                    <img src="./img/vogueCommerce.png" alt="E-Commerce Luxo" class="w-full h-64 object-cover transition duration-500 group-hover:scale-105">
+                <div class="creative-card rounded-2xl overflow-hidden group relative" itemscope itemtype="http://schema.org/CreativeWork">
+                    <meta itemprop="creator" content="WorkVerse"/>
+                    <img src="./img/vogueCommerce.png" alt="E-Commerce Vogue Commerce" class="w-full h-64 object-cover transition duration-500 group-hover:scale-105" loading="lazy" itemprop="image">
                     <div class="absolute inset-0 bg-gradient-to-t from-dark-900/90 via-dark-900/40 to-transparent flex flex-col justify-end p-8">
-                        <h3 class="text-xl font-bold text-white mb-2 creative-heading">Vogue Commerce</h3>
-                        <p class="text-gray-300 mb-4">E-commerce premium para marca de moda luxuosa</p>
-                        <button onclick="openModal('modal2')" class="text-white font-medium flex items-center group text-sm bg-gradient-to-r from-creative-blue to-cyan-400 px-4 py-2 rounded-full self-start">
+                        <h3 class="text-xl font-bold text-white mb-2 creative-heading" itemprop="name">Vogue Commerce</h3>
+                        <p class="text-gray-300 mb-4" itemprop="description">E-commerce premium para marca de moda luxuosa</p>
+                        <button onclick="openModal('modal2')" class="text-white font-medium flex items-center group text-sm bg-gradient-to-r from-creative-blue to-cyan-400 px-4 py-2 rounded-full self-start" title="Ver detalhes do projeto Vogue Commerce">
                             Ver Detalhes
-                            <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition duration-300"></i>
+                            <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition duration-300" aria-hidden="true"></i>
                         </button>
                     </div>
                 </div>
                 
                 <!-- Projeto 3 -->
-                <div class="creative-card rounded-2xl overflow-hidden group relative">
-                    <img src="./img/FitTrak.png" alt="App Mobile" class="w-full h-64 object-cover transition duration-500 group-hover:scale-105">
+                <div class="creative-card rounded-2xl overflow-hidden group relative" itemscope itemtype="http://schema.org/CreativeWork">
+                    <meta itemprop="creator" content="WorkVerse"/>
+                    <img src="./img/FitTrak.png" alt="App Mobile FitTrack" class="w-full h-64 object-cover transition duration-500 group-hover:scale-105" loading="lazy" itemprop="image">
                     <div class="absolute inset-0 bg-gradient-to-t from-dark-900/90 via-dark-900/40 to-transparent flex flex-col justify-end p-8">
-                        <h3 class="text-xl font-bold text-white mb-2 creative-heading">FitTrack App</h3>
-                        <p class="text-gray-300 mb-4">Aplicativo de fitness com realidade aumentada</p>
-                        <button onclick="openModal('modal3')" class="text-white font-medium flex items-center group text-sm bg-gradient-to-r from-creative-pink to-purple-500 px-4 py-2 rounded-full self-start">
+                        <h3 class="text-xl font-bold text-white mb-2 creative-heading" itemprop="name">FitTrack App</h3>
+                        <p class="text-gray-300 mb-4" itemprop="description">Aplicativo de fitness com realidade aumentada</p>
+                        <button onclick="openModal('modal3')" class="text-white font-medium flex items-center group text-sm bg-gradient-to-r from-creative-pink to-purple-500 px-4 py-2 rounded-full self-start" title="Ver detalhes do projeto FitTrack App">
                             Ver Detalhes
-                            <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition duration-300"></i>
+                            <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition duration-300" aria-hidden="true"></i>
                         </button>
                     </div>
                 </div>
             </div>
             
             <div class="text-center mt-12">
-                <a href="criando.html" class="inline-flex items-center px-8 py-3 border-2 border-dark-900 text-dark-900 rounded-full font-medium hover:bg-dark-900 hover:text-white transition duration-300 creative-heading">
+                <a href="criando.html" class="inline-flex items-center px-8 py-3 border-2 border-dark-900 text-dark-900 rounded-full font-medium hover:bg-dark-900 hover:text-white transition duration-300 creative-heading" title="Explorar todos projetos">
                     Explorar Todos Projetos
-                    <i class="fas fa-arrow-right ml-2"></i>
+                    <i class="fas fa-arrow-right ml-2" aria-hidden="true"></i>
                 </a>
             </div>
         </div>
     </section>
 
     <!-- Modal Structure -->
-    <div id="modal1" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4 hidden">
+    <div id="modal1" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4 hidden" aria-modal="true" aria-labelledby="modal1-title" role="dialog">
         <div class="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto modal-in">
             <div class="relative">
-                <button onclick="closeModal('modal1')" class="absolute top-4 right-4 bg-gray-100 hover:bg-gray-200 rounded-full p-2 transition duration-300">
-                    <i class="fas fa-times text-gray-600"></i>
+                <button onclick="closeModal('modal1')" class="absolute top-4 right-4 bg-gray-100 hover:bg-gray-200 rounded-full p-2 transition duration-300" aria-label="Fechar modal">
+                    <i class="fas fa-times text-gray-600" aria-hidden="true"></i>
                 </button>
                 
-                <img src="./img/image.png" alt="Ilumina, foto de capa" class="w-full h-64 object-cover rounded-t-2xl">
+                <img src="./img/image.png" alt="Ilumina, foto de capa" class="w-full h-64 object-cover rounded-t-2xl" loading="lazy">
                 
                 <div class="p-8">
-                    <h3 class="text-2xl font-bold text-dark-900 mb-2 creative-heading">Ilumina</h3>
+                    <h3 id="modal1-title" class="text-2xl font-bold text-dark-900 mb-2 creative-heading">Ilumina</h3>
                     <div class="flex items-center mb-6">
                         <span class="bg-creative-purple/10 text-creative-purple px-3 py-1 rounded-full text-sm mr-3">Business Intelligence</span>
                         <span class="bg-creative-blue/10 text-creative-blue px-3 py-1 rounded-full text-sm">Data Visualization</span>
@@ -580,10 +670,10 @@
                     </div>
                     
                     <div class="flex flex-col sm:flex-row gap-4">
-                        <a href="https://jairmiguel-dev.github.io/Lumina/" target="_blank" class="bg-gradient-to-r from-creative-purple to-creative-pink text-white px-6 py-3 rounded-full font-medium hover:opacity-90 transition duration-300 text-center flex-1">
+                        <a href="https://jairmiguel-dev.github.io/Lumina/" target="_blank" class="bg-gradient-to-r from-creative-purple to-creative-pink text-white px-6 py-3 rounded-full font-medium hover:opacity-90 transition duration-300 text-center flex-1" title="Visitar site Ilumina" rel="noopener">
                             Visitar Site
                         </a>
-                        <a href="https://wa.me/5541984761252?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20o%20projeto%20Ilumina%20Portfolio%20que%20vi%20no%20site%20da%20WorkVerse" target="_blank" class="border-2 border-dark-900 text-dark-900 px-6 py-3 rounded-full font-medium hover:bg-dark-900 hover:text-white transition duration-300 text-center flex-1">
+                        <a href="https://wa.me/5541984761252?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20o%20projeto%20Ilumina%20Portfolio%20que%20vi%20no%20site%20da%20WorkVerse" target="_blank" class="border-2 border-dark-900 text-dark-900 px-6 py-3 rounded-full font-medium hover:bg-dark-900 hover:text-white transition duration-300 text-center flex-1" title="Falar com especialista sobre Ilumina" rel="noopener">
                             Falar com Especialista
                         </a>
                     </div>
@@ -592,17 +682,17 @@
         </div>
     </div>
     
-    <div id="modal2" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4 hidden">
+    <div id="modal2" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4 hidden" aria-modal="true" aria-labelledby="modal2-title" role="dialog">
         <div class="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto modal-in">
             <div class="relative">
-                <button onclick="closeModal('modal2')" class="absolute top-4 right-4 bg-gray-100 hover:bg-gray-200 rounded-full p-2 transition duration-300">
-                    <i class="fas fa-times text-gray-600"></i>
+                <button onclick="closeModal('modal2')" class="absolute top-4 right-4 bg-gray-100 hover:bg-gray-200 rounded-full p-2 transition duration-300" aria-label="Fechar modal">
+                    <i class="fas fa-times text-gray-600" aria-hidden="true"></i>
                 </button>
                 
-                <img src="./img/vogueCommerce.png" alt="Vogue Commerce" class="w-full h-64 object-cover rounded-t-2xl">
+                <img src="./img/vogueCommerce.png" alt="Vogue Commerce" class="w-full h-64 object-cover rounded-t-2xl" loading="lazy">
                 
                 <div class="p-8">
-                    <h3 class="text-2xl font-bold text-dark-900 mb-2 creative-heading">Vogue Commerce</h3>
+                    <h3 id="modal2-title" class="text-2xl font-bold text-dark-900 mb-2 creative-heading">Vogue Commerce</h3>
                     <div class="flex items-center mb-6">
                         <span class="bg-creative-pink/10 text-creative-pink px-3 py-1 rounded-full text-sm mr-3">E-Commerce</span>
                         <span class="bg-purple-500/10 text-purple-500 px-3 py-1 rounded-full text-sm">Moda Luxo</span>
@@ -636,10 +726,10 @@
                     </div>
                     
                     <div class="flex flex-col sm:flex-row gap-4">
-                        <a href="https://jairmiguel-dev.github.io/Vogue_Commerce/" target="_blank" class="bg-gradient-to-r from-creative-pink to-purple-500 text-white px-6 py-3 rounded-full font-medium hover:opacity-90 transition duration-300 text-center flex-1">
+                        <a href="https://jairmiguel-dev.github.io/Vogue_Commerce/" target="_blank" class="bg-gradient-to-r from-creative-pink to-purple-500 text-white px-6 py-3 rounded-full font-medium hover:opacity-90 transition duration-300 text-center flex-1" title="Visitar site Vogue Commerce" rel="noopener">
                             Visitar Site
                         </a>
-                        <a href="https://wa.me/554198476?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20o%20projeto%20Vogue%20Commerce%20que%20vi%20no%20site%20da%20WorkVerse" target="_blank" class="border-2 border-dark-900 text-dark-900 px-6 py-3 rounded-full font-medium hover:bg-dark-900 hover:text-white transition duration-300 text-center flex-1">
+                        <a href="https://wa.me/5541984761252?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20o%20projeto%20Vogue%20Commerce%20que%20vi%20no%20site%20da%20WorkVerse" target="_blank" class="border-2 border-dark-900 text-dark-900 px-6 py-3 rounded-full font-medium hover:bg-dark-900 hover:text-white transition duration-300 text-center flex-1" title="Falar com especialista sobre Vogue Commerce" rel="noopener">
                             Falar com Especialista
                         </a>
                     </div>
@@ -648,17 +738,17 @@
         </div>
     </div>
     
-    <div id="modal3" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4 hidden">
+    <div id="modal3" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4 hidden" aria-modal="true" aria-labelledby="modal3-title" role="dialog">
         <div class="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto modal-in">
             <div class="relative">
-                <button onclick="closeModal('modal3')" class="absolute top-4 right-4 bg-gray-100 hover:bg-gray-200 rounded-full p-2 transition duration-300">
-                    <i class="fas fa-times text-gray-600"></i>
+                <button onclick="closeModal('modal3')" class="absolute top-4 right-4 bg-gray-100 hover:bg-gray-200 rounded-full p-2 transition duration-300" aria-label="Fechar modal">
+                    <i class="fas fa-times text-gray-600" aria-hidden="true"></i>
                 </button>
                 
-                <img src="./img/FitTrak.png" alt="FitTrack App" class="w-full h-64 object-cover rounded-t-2xl">
+                <img src="./img/FitTrak.png" alt="FitTrack App" class="w-full h-64 object-cover rounded-t-2xl" loading="lazy">
                 
                 <div class="p-8">
-                    <h3 class="text-2xl font-bold text-dark-900 mb-2 creative-heading">FitTrack App</h3>
+                    <h3 id="modal3-title" class="text-2xl font-bold text-dark-900 mb-2 creative-heading">FitTrack App</h3>
                     <div class="flex items-center mb-6">
                         <span class="bg-creative-blue/10 text-creative-blue px-3 py-1 rounded-full text-sm mr-3">Mobile App</span>
                         <span class="bg-cyan-400/10 text-cyan-400 px-3 py-1 rounded-full text-sm">Realidade Aumentada</span>
@@ -692,10 +782,10 @@
                     </div>
                     
                     <div class="flex flex-col sm:flex-row gap-4">
-                        <a href="https://jairmiguel-dev.github.io/FitTrack_App/" target="_blank" class="bg-gradient-to-r from-creative-blue to-cyan-400 text-white px-6 py-3 rounded-full font-medium hover:opacity-90 transition duration-300 text-center flex-1">
+                        <a href="https://jairmiguel-dev.github.io/FitTrack_App/" target="_blank" class="bg-gradient-to-r from-creative-blue to-cyan-400 text-white px-6 py-3 rounded-full font-medium hover:opacity-90 transition duration-300 text-center flex-1" title="Visitar site FitTrack App" rel="noopener">
                             Visitar Site
                         </a>
-                        <a href="https://wa.me/5541984761252?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20o%20projeto%20FitTrack%20App%20que%20vi%20no%20site%20da%20WorkVerse" target="_blank" class="border-2 border-dark-900 text-dark-900 px-6 py-3 rounded-full font-medium hover:bg-dark-900 hover:text-white transition duration-300 text-center flex-1">
+                        <a href="https://wa.me/5541984761252?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20o%20projeto%20FitTrack%20App%20que%20vi%20no%20site%20da%20WorkVerse" target="_blank" class="border-2 border-dark-900 text-dark-900 px-6 py-3 rounded-full font-medium hover:bg-dark-900 hover:text-white transition duration-300 text-center flex-1" title="Falar com especialista sobre FitTrack App" rel="noopener">
                             Falar com Especialista
                         </a>
                     </div>
@@ -705,23 +795,23 @@
     </div>
   
     <!-- Clientes Antes e Depois -->
-<section class="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 bg-white">
+<section class="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 bg-white" aria-labelledby="results-heading">
     <div class="max-w-7xl mx-auto">
         <div class="text-center mb-16">
             <span class="text-gradient bg-gradient-to-r from-creative-purple to-creative-pink bg-clip-text text-transparent font-medium">RESULTADOS</span>
-            <h2 class="text-3xl md:text-5xl font-bold text-dark-900 mt-4 creative-heading">Transformação Digital Real</h2>
+            <h2 id="results-heading" class="text-3xl md:text-5xl font-bold text-dark-900 mt-4 creative-heading">Transformação Digital Real</h2>
             <p class="text-gray-600 max-w-2xl mx-auto mt-6">Veja como revolucionamos a presença digital destes negócios:</p>
         </div>
         
         <div class="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
             <!-- Caso 1 -->
-            <div class="creative-card p-6 rounded-2xl border border-gray-100">
+            <div class="creative-card p-6 rounded-2xl border border-gray-100" itemscope itemtype="http://schema.org/Review">
                 <div class="flex items-start mb-6">
                     <div class="bg-gradient-to-r from-creative-purple to-creative-pink p-3 rounded-lg text-white mr-4">
-                        <i class="fas fa-store text-xl"></i>
+                        <i class="fas fa-store text-xl" aria-hidden="true"></i>
                     </div>
                     <div>
-                        <h3 class="text-xl font-bold text-dark-900 creative-heading">Loja de Moda</h3>
+                        <h3 class="text-xl font-bold text-dark-900 creative-heading" itemprop="name">Loja de Moda</h3>
                         <p class="text-gray-500 text-sm">Antes: Apenas vendas físicas</p>
                     </div>
                 </div>
@@ -732,7 +822,7 @@
                         <p class="text-gray-400 line-through">R$8.000/mês</p>
                     </div>
                     <div class="text-3xl text-gray-300 mx-4">
-                        <i class="fas fa-arrow-right"></i>
+                        <i class="fas fa-arrow-right" aria-hidden="true"></i>
                     </div>
                     <div>
                         <p class="text-gray-500 text-sm">Depois</p>
@@ -740,24 +830,24 @@
                     </div>
                 </div>
                 
-                <div class="bg-gray-50 p-4 rounded-lg mb-4">
+                <div class="bg-gray-50 p-4 rounded-lg mb-4" itemprop="reviewBody">
                     <p class="text-sm text-gray-600"><span class="font-bold">Resultado:</span> +187% de aumento nas vendas após 4 meses com nossa plataforma e-comerce.</p>
                 </div>
                 
                 <div class="flex items-center justify-between">
                     <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">Disponível para 3 novos clientes</span>
-                    <a href="https://wa.me/5541984761252?text=Olá,%20quero%20um%20resultado%20parecido%20com%20o%20da%20loja%20de%20moda" class="text-creative-purple text-sm font-medium">Quero igual <i class="fas fa-arrow-right ml-1"></i></a>
+                    <a href="https://wa.me/5541984761252?text=Olá,%20quero%20um%20resultado%20parecido%20com%20o%20da%20loja%20de%20moda" class="text-creative-purple text-sm font-medium" title="Quero resultado igual">Quero igual <i class="fas fa-arrow-right ml-1" aria-hidden="true"></i></a>
                 </div>
             </div>
             
             <!-- Caso 2 -->
-            <div class="creative-card p-6 rounded-2xl border border-gray-100">
+            <div class="creative-card p-6 rounded-2xl border border-gray-100" itemscope itemtype="http://schema.org/Review">
                 <div class="flex items-start mb-6">
                     <div class="bg-gradient-to-r from-creative-blue to-cyan-400 p-3 rounded-lg text-white mr-4">
-                        <i class="fas fa-utensils text-xl"></i>
+                        <i class="fas fa-utensils text-xl" aria-hidden="true"></i>
                     </div>
                     <div>
-                        <h3 class="text-xl font-bold text-dark-900 creative-heading">Restaurante</h3>
+                        <h3 class="text-xl font-bold text-dark-900 creative-heading" itemprop="name">Restaurante</h3>
                         <p class="text-gray-500 text-sm">Antes: Cardápio físico apenas</p>
                     </div>
                 </div>
@@ -768,7 +858,7 @@
                         <p class="text-gray-400 line-through">15 pedidos/dia</p>
                     </div>
                     <div class="text-3xl text-gray-300 mx-4">
-                        <i class="fas fa-arrow-right"></i>
+                        <i class="fas fa-arrow-right" aria-hidden="true"></i>
                     </div>
                     <div>
                         <p class="text-gray-500 text-sm">Depois</p>
@@ -776,13 +866,13 @@
                     </div>
                 </div>
                 
-                <div class="bg-gray-50 p-4 rounded-lg mb-4">
+                <div class="bg-gray-50 p-4 rounded-lg mb-4" itemprop="reviewBody">
                     <p class="text-sm text-gray-600"><span class="font-bold">Resultado:</span> Sistema de pedidos online com aumento de 180% na produtividade.</p>
                 </div>
                 
                 <div class="flex items-center justify-between">
                     <span class="bg-green-100 text-green-800 text-xs px-2 py-1 rounded">Última vaga para restaurantes</span>
-                    <a href="https://wa.me/5541984761252?text=Olá,%20quero%20o%20sistema%20para%20restaurante%20como%20no%20case" class="text-creative-blue text-sm font-medium">Quero igual <i class="fas fa-arrow-right ml-1"></i></a>
+                    <a href="https://wa.me/5541984761252?text=Olá,%20quero%20o%20sistema%20para%20restaurante%20como%20no%20case" class="text-creative-blue text-sm font-medium" title="Quero resultado igual">Quero igual <i class="fas fa-arrow-right ml-1" aria-hidden="true"></i></a>
                 </div>
             </div>
         </div>
@@ -793,53 +883,49 @@
             
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
                 <a href="https://wa.me/5541984761252?text=Olá,%20quero%20ser%20o%20próximo%20case%20de%20sucesso%20da%20WorkVerse" 
-                   class="bg-white text-dark-900 px-8 py-3 rounded-full font-medium hover:bg-gray-100 transition duration-300 shadow-lg hover:shadow-xl flex items-center justify-center">
-                    <i class="fab fa-whatsapp mr-2 text-lg"></i> Garantir minha vaga
+                   class="bg-white text-dark-900 px-8 py-3 rounded-full font-medium hover:bg-gray-100 transition duration-300 shadow-lg hover:shadow-xl flex items-center justify-center"
+                   title="Garantir minha vaga">
+                    <i class="fab fa-whatsapp mr-2 text-lg" aria-hidden="true"></i> Garantir minha vaga
                 </a>
-                <a href="criando.html" class="border-2 border-white text-white px-8 py-3 rounded-full font-medium hover:bg-white hover:text-dark-900 transition duration-300">
+                <a href="criando.html" class="border-2 border-white text-white px-8 py-3 rounded-full font-medium hover:bg-white hover:text-dark-900 transition duration-300" title="Ver mais cases">
                     Ver mais cases
                 </a>
             </div>
             
             <p class="text-sm text-white/70 mt-4 flex items-center justify-center">
-                <i class="fas fa-user-clock mr-2"></i> Tempo médio de resposta: 27 minutos
+                <i class="fas fa-user-clock mr-2" aria-hidden="true"></i> Tempo médio de resposta: 27 minutos
             </p>
         </div>
     </div>
 </section>
 
     <!-- CTA Section -->
-    <section id="contato" class="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-creative-purple to-creative-pink text-white">
+    <section id="contato" class="py-16 sm:py-24 px-4 sm:px-6 lg:px-8 bg-gradient-to-r from-creative-purple to-creative-pink text-white" aria-labelledby="cta-heading">
         <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-3xl md:text-5xl font-bold mb-6 creative-heading">Pronto para Transformar Sua Ideia em Realidade?</h2>
+            <h2 id="cta-heading" class="text-3xl md:text-5xl font-bold mb-6 creative-heading">Pronto para Transformar Sua Ideia em Realidade?</h2>
             <p class="text-white/90 mb-8 max-w-2xl mx-auto">Agende uma consulta gratuita com nosso time de especialistas e descubra como podemos elevar seu projeto digital.</p>
             <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                <a href="https://wa.me/5541984761252?text=Olá,%20gostaria%20de%20conversar%20sobre%20um%20projeto%20web%20com%20a%20WorkVerse" target="_blank" class="bg-white text-creative-purple px-8 py-3 rounded-full font-medium hover:bg-gray-100 transition duration-300 shadow-lg hover:shadow-xl">
-                    <i class="fab fa-whatsapp mr-2"></i> WhatsApp
+                <a href="https://wa.me/5541984761252?text=Olá,%20gostaria%20de%20conversar%20sobre%20um%20projeto%20web%20com%20a%20WorkVerse" target="_blank" class="bg-white text-creative-purple px-8 py-3 rounded-full font-medium hover:bg-gray-100 transition duration-300 shadow-lg hover:shadow-xl" title="Conversar no WhatsApp" rel="noopener">
+                    <i class="fab fa-whatsapp mr-2" aria-hidden="true"></i> WhatsApp
                 </a>
-                <a href="mailto:contato@workverse.com" class="border-2 border-white text-white px-8 py-3 rounded-full font-medium hover:bg-white hover:text-creative-purple transition duration-300">
-                    <i class="fas fa-envelope mr-2"></i> Enviar Email
+                <a href="mailto:contato@workverse.com.br" class="border-2 border-white text-white px-8 py-3 rounded-full font-medium hover:bg-white hover:text-creative-purple transition duration-300" title="Enviar email">
+                    <i class="fas fa-envelope mr-2" aria-hidden="true"></i> Enviar Email
                 </a>
             </div>
         </div>
     </section>
     
     <!-- Footer -->
-    <footer class="bg-dark-900 text-white py-12 sm:py-16 px-4 sm:px-6 lg:px-8">
+    <footer class="bg-dark-900 text-white py-12 sm:py-16 px-4 sm:px-6 lg:px-8" itemscope itemtype="http://schema.org/WPFooter">
         <div class="max-w-7xl mx-auto">
             <div class="grid grid-cols-1 md:grid-cols-4 gap-8 sm:gap-12">
                 <div>
                     <h3 class="text-2xl font-bold mb-6 creative-heading">Work<span class="text-creative-purple">Verse</span></h3>
                     <p class="text-gray-400 mb-6">Transformando ideias em experiências digitais extraordinárias.</p>
                     <div class="flex space-x-4">
-                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
-                            <i class="fab fa-behance"></i>
+                        <a href="https://www.instagram.com/workverse" class="text-gray-400 hover:text-white transition duration-300" title="Instagram WorkVerse" target="_blank" rel="noopener">
+                            <i class="fab fa-instagram" aria-hidden="true"></i>
+                            <span class="sr-only">Instagram</span>
                         </a>
                     </div>
                 </div>
@@ -847,28 +933,28 @@
                 <div>
                     <h4 class="font-bold text-white mb-6 creative-heading">Serviços</h4>
                     <ul class="space-y-3">
-                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Design Criativo</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Desenvolvimento Web</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">E-Commerce Premium</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Aplicativos Mobile</a></li>
+                        <li><a href="servicos/design-exclusivo.html" class="text-gray-400 hover:text-white transition duration-300" title="Design Exclusivo">Design Criativo</a></li>
+                        <li><a href="servicos/desenvolvimento-web.html" class="text-gray-400 hover:text-white transition duration-300" title="Desenvolvimento Web">Desenvolvimento Web</a></li>
+                        <li><a href="servicos/ecommerce-premium.html" class="text-gray-400 hover:text-white transition duration-300" title="E-Commerce Premium">E-Commerce Premium</a></li>
+                        <li><a href="servicos/aplicativos-mobile.html" class="text-gray-400 hover:text-white transition duration-300" title="Aplicativos Mobile">Aplicativos Mobile</a></li>
                     </ul>
                 </div>
                 
                 <div>
                     <h4 class="font-bold text-white mb-6 creative-heading">Empresa</h4>
                     <ul class="space-y-3">
-                        <li><a href="#sobre" class="text-gray-400 hover:text-white transition duration-300">Sobre Nós</a></li>
-                        <li><a href="criando.html" class="text-gray-400 hover:text-white transition duration-300">Portfólio</a></li>
-                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Blog</a></li>
-                        <li><a href="#contato" class="text-gray-400 hover:text-white transition duration-300">Contato</a></li>
+                        <li><a href="sobre.html" class="text-gray-400 hover:text-white transition duration-300" title="Sobre a WorkVerse">Sobre Nós</a></li>
+                        <li><a href="criando.html" class="text-gray-400 hover:text-white transition duration-300" title="Nosso Portfólio">Portfólio</a></li>
+                        <li><a href="blog.html" class="text-gray-400 hover:text-white transition duration-300" title="Blog WorkVerse">Blog</a></li>
+                        <li><a href="#contato" class="text-gray-400 hover:text-white transition duration-300" title="Contato WorkVerse">Contato</a></li>
                     </ul>
                 </div>
             
             <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
                 <p class="text-gray-400 mb-4 md:mb-0">© 2025 WorkVerse. Todos os direitos reservados.</p>
                 <div class="flex space-x-6">
-                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">Política de Privacidade</a>
-                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">Termos de Serviço</a>
+                    <a href="politica-de-privacidade.html" class="text-gray-400 hover:text-white transition duration-300" title="Política de Privacidade">Política de Privacidade</a>
+                    <a href="termos-de-servico.html" class="text-gray-400 hover:text-white transition duration-300" title="Termos de Serviço">Termos de Serviço</a>
                 </div>
             </div>
         </div>
@@ -880,6 +966,9 @@
         const mobileMenu = document.getElementById('mobile-menu');
         
         menuToggle.addEventListener('click', () => {
+            const isExpanded = menuToggle.getAttribute('aria-expanded') === 'true';
+            menuToggle.setAttribute('aria-expanded', !isExpanded);
+            mobileMenu.setAttribute('aria-hidden', isExpanded);
             mobileMenu.classList.toggle('hidden');
         });
         
@@ -900,6 +989,8 @@
                     // Close mobile menu if open
                     if (!mobileMenu.classList.contains('hidden')) {
                         mobileMenu.classList.add('hidden');
+                        menuToggle.setAttribute('aria-expanded', 'false');
+                        mobileMenu.setAttribute('aria-hidden', 'true');
                     }
                 }
             });
@@ -907,25 +998,42 @@
         
         // Modal functions
         function openModal(modalId) {
-            document.getElementById(modalId).classList.remove('hidden');
+            const modal = document.getElementById(modalId);
+            modal.classList.remove('hidden');
+            modal.setAttribute('aria-hidden', 'false');
             document.body.style.overflow = 'hidden';
+            
+            // Focus on the first focusable element
+            const focusable = modal.querySelector('button, [href], input, select, textarea, [tabindex]:not([tabindex="-1"])');
+            if (focusable) focusable.focus();
         }
         
         function closeModal(modalId) {
-            document.getElementById(modalId).classList.add('hidden');
+            const modal = document.getElementById(modalId);
+            modal.classList.add('hidden');
+            modal.setAttribute('aria-hidden', 'true');
             document.body.style.overflow = 'auto';
         }
         
         // Close modal when clicking outside
         window.onclick = function(event) {
             if (event.target.classList.contains('fixed')) {
-                const modals = document.querySelectorAll('.fixed.hidden');
+                const modals = document.querySelectorAll('.fixed[aria-modal="true"]');
                 modals.forEach(modal => {
-                    modal.classList.add('hidden');
-                    document.body.style.overflow = 'auto';
+                    closeModal(modal.id);
                 });
             }
         }
+        
+        // Close modal with ESC key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                const modals = document.querySelectorAll('.fixed[aria-modal="true"]:not(.hidden)');
+                modals.forEach(modal => {
+                    closeModal(modal.id);
+                });
+            }
+        });
         
         // Animate elements when they come into view
         const animateOnScroll = () => {
@@ -953,6 +1061,45 @@
         window.addEventListener('scroll', animateOnScroll);
         // Run once on load
         window.addEventListener('load', animateOnScroll);
+        
+        // Track outbound links
+        document.querySelectorAll('a[href^="http"]').forEach(link => {
+            if (link.hostname !== window.location.hostname) {
+                link.addEventListener('click', function(e) {
+                    // You can add your analytics tracking here
+                    console.log('Outbound link clicked:', this.href);
+                });
+            }
+        });
+    </script>
+    
+    <!-- Structured data for breadcrumbs -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://www.workverse.com.br"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Serviços",
+        "item": "https://www.workverse.com.br/servicos"
+      },{
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Portfólio",
+        "item": "https://www.workverse.com.br/portfolio"
+      },{
+        "@type": "ListItem",
+        "position": 4,
+        "name": "Contato",
+        "item": "https://www.workverse.com.br/contato"
+      }]
+    }
     </script>
 </body>
 </html>
