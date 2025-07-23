@@ -614,6 +614,20 @@
                         </button>
                     </div>
                 </div>
+
+                <!-- Projeto 4 -->
+                <div class="creative-card rounded-2xl overflow-hidden group relative" itemscope itemtype="http://schema.org/CreativeWork">
+                    <meta itemprop="creator" content="WorkVerse"/>
+                    <img src="./img/image.png" alt="Plataforma de Gestão Ilumina" class="w-full h-64 object-cover transition duration-500 group-hover:scale-105" loading="lazy" itemprop="image">
+                    <div class="absolute inset-0 bg-gradient-to-t from-dark-900/90 via-dark-900/40 to-transparent flex flex-col justify-end p-8">
+                        <h3 class="text-xl font-bold text-white mb-2 creative-heading" itemprop="name">Church App</h3>
+                        <p class="text-gray-300 mb-4" itemprop="description">Modelo de aplicativo para Igrejas</p>
+                        <button onclick="openModal('modal4')" class="text-white font-medium flex items-center group text-sm bg-gradient-to-r from-creative-purple to-creative-pink px-4 py-2 rounded-full self-start" title="Ver detalhes do projeto Ilumina">
+                            Ver Detalhes
+                            <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition duration-300" aria-hidden="true"></i>
+                        </button>
+                    </div>
+                </div>
             </div>
             
             <div class="text-center mt-12">
@@ -786,6 +800,61 @@
                             Visitar Site
                         </a>
                         <a href="https://wa.me/5541984761252?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20o%20projeto%20FitTrack%20App%20que%20vi%20no%20site%20da%20WorkVerse" target="_blank" class="border-2 border-dark-900 text-dark-900 px-6 py-3 rounded-full font-medium hover:bg-dark-900 hover:text-white transition duration-300 text-center flex-1" title="Falar com especialista sobre FitTrack App" rel="noopener">
+                            Falar com Especialista
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="modal4" class="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4 hidden" aria-modal="true" aria-labelledby="modal2-title" role="dialog">
+        <div class="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-y-auto modal-in">
+            <div class="relative">
+                <button onclick="closeModal('modal2')" class="absolute top-4 right-4 bg-gray-100 hover:bg-gray-200 rounded-full p-2 transition duration-300" aria-label="Fechar modal">
+                    <i class="fas fa-times text-gray-600" aria-hidden="true"></i>
+                </button>
+                
+                <img src="./img/vogueCommerce.png" alt="ChuchApp" class="w-full h-64 object-cover rounded-t-2xl" loading="lazy">
+                
+                <div class="p-8">
+                    <h3 id="modal2-title" class="text-2xl font-bold text-dark-900 mb-2 creative-heading">ChuchApp</h3>
+                    <div class="flex items-center mb-6">
+                        <span class="bg-creative-pink/10 text-creative-pink px-3 py-1 rounded-full text-sm mr-3">App</span>
+                        <span class="bg-purple-500/10 text-purple-500 px-3 py-1 rounded-full text-sm">Adoração</span>
+                    </div>
+                    
+                    <p class="text-gray-600 mb-6">Modelo de aplicativo desenvolvido para igrejas com grande potencial de acolher o publico com menos entendimento e com mais dificuldade na tecnologia.</p>
+                    
+                    <h4 class="font-bold text-dark-900 mb-3 creative-heading">Tecnologias Utilizadas</h4>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="bg-gray-100 px-3 py-1 rounded-full text-sm">ReactNative.js</span>
+                        <span class="bg-gray-100 px-3 py-1 rounded-full text-sm">Three.js</span>
+                        <span class="bg-gray-100 px-3 py-1 rounded-full text-sm">Node.js</span>
+                        <span class="bg-gray-100 px-3 py-1 rounded-full text-sm">FireBase</span>
+                    </div>
+                    
+                    <h4 class="font-bold text-dark-900 mb-3 creative-heading">Resultados</h4>
+                    <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-8">
+                        <div class="bg-gray-50 p-4 rounded-xl">
+                            <p class="text-2xl font-bold text-creative-pink mb-1">+99%</p>
+                            <p class="text-gray-600 text-sm">Elogios</p>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-xl">
+                            <p class="text-2xl font-bold text-creative-pink mb-1">98%</p>
+                            <p class="text-gray-600 text-sm">Redução de faltas</p>
+                        </div>
+                        <div class="bg-gray-50 p-4 rounded-xl">
+                            <p class="text-2xl font-bold text-creative-pink mb-1">1.8s</p>
+                            <p class="text-gray-600 text-sm">Tempo de carregamento</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="https://jairmiguel-dev.github.io/ChuchApp/" target="_blank" class="bg-gradient-to-r from-creative-pink to-purple-500 text-white px-6 py-3 rounded-full font-medium hover:opacity-90 transition duration-300 text-center flex-1" title="Visitar site Vogue Commerce" rel="noopener">
+                            Visitar Site
+                        </a>
+                        <a href="https://wa.me/5541984761252?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20o%20projeto%20Vogue%20Commerce%20que%20vi%20no%20site%20da%20WorkVerse" target="_blank" class="border-2 border-dark-900 text-dark-900 px-6 py-3 rounded-full font-medium hover:bg-dark-900 hover:text-white transition duration-300 text-center flex-1" title="Falar com especialista sobre Vogue Commerce" rel="noopener">
                             Falar com Especialista
                         </a>
                     </div>
