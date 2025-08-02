@@ -1,0 +1,1502 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WorkVerse | Portfólio Avançado</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/controls/OrbitControls.js"></script>
+    <link rel="icon" href="./img/WorkVerse.png" type="image/png">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: {
+                            50: '#faf5ff',
+                            100: '#f3e8ff',
+                            200: '#e9d5ff',
+                            300: '#d8b4fe',
+                            400: '#c084fc',
+                            500: '#a855f7',
+                            600: '#9333ea',
+                            700: '#7e22ce',
+                            800: '#6b21a8',
+                            900: '#581c87',
+                        },
+                        dark: {
+                            900: '#0f0f0f',
+                            800: '#181818',
+                            700: '#212121',
+                        },
+                        creative: {
+                            purple: '#8A2BE2',
+                            pink: '#FF10F0',
+                            blue: '#00B4D8'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        creative: ['"Space Grotesk"', 'sans-serif']
+                    },
+                    animation: {
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 6s ease-in-out infinite',
+                        'tilt': 'tilt 10s infinite linear',
+                        'float-soft': 'floatSoft 8s ease-in-out infinite'
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            overflow-x: hidden;
+            background-color: #f9f9f9;
+        }
+        
+        .creative-heading {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+        
+        .gradient-text {
+            background: linear-gradient(90deg, #8A2BE2 0%, #FF10F0 50%, #00B4D8 100%);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+        
+        .hero-gradient {
+            background: radial-gradient(circle at 70% 20%, rgba(138, 43, 226, 0.1) 0%, rgba(255, 255, 255, 0) 60%);
+        }
+        
+        .portfolio-card {
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            background: linear-gradient(145deg, #ffffff 0%, #f8f8f8 100%);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+        
+        .portfolio-card:hover {
+            transform: translateY(-10px) scale(1.02) rotateY(5deg) rotateX(2deg);
+            box-shadow: 0 15px 60px rgba(138, 43, 226, 0.15);
+        }
+        
+        .portfolio-card:hover .portfolio-image {
+            transform: scale(1.05);
+        }
+        
+        .portfolio-image {
+            transition: transform 0.5s ease;
+        }
+        
+        .nav-link::after {
+            content: '';
+            display: block;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, #8A2BE2 0%, #FF10F0 100%);
+            transition: width 0.4s ease;
+        }
+        
+        .nav-link:hover::after {
+            width: 100%;
+        }
+        
+        /* Floating Animations */
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-15px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        @keyframes floatSoft {
+            0% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-8px) rotate(1deg); }
+            100% { transform: translateY(0px) rotate(0deg); }
+        }
+        
+        @keyframes tilt {
+            0%, 100% { transform: rotate(-1deg); }
+            50% { transform: rotate(1deg); }
+        }
+        
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        .floating-soft {
+            animation: floatSoft 8s ease-in-out infinite;
+        }
+        
+        .tilt-animation {
+            animation: tilt 10s infinite linear;
+        }
+        
+        /* Creative Shapes */
+        .creative-shape {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(60px);
+            opacity: 0.15;
+            z-index: -1;
+        }
+        
+        .shape-purple {
+            width: 300px;
+            height: 300px;
+            background: #8A2BE2;
+            top: 10%;
+            left: 5%;
+        }
+        
+        .shape-pink {
+            width: 400px;
+            height: 400px;
+            background: #FF10F0;
+            bottom: 10%;
+            right: 5%;
+        }
+        
+        .shape-blue {
+            width: 250px;
+            height: 250px;
+            background: #00B4D8;
+            top: 50%;
+            left: 30%;
+        }
+        
+        .category-filter button.active {
+            background: linear-gradient(90deg, #8A2BE2 0%, #FF10F0 100%);
+            color: white;
+        }
+        
+        .portfolio-tag {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+        
+        .tag-web {
+            background-color: #8A2BE2;
+            color: white;
+        }
+        
+        .tag-app {
+            background-color: #FF10F0;
+            color: white;
+        }
+        
+        .tag-ecommerce {
+            background-color: #00B4D8;
+            color: white;
+        }
+        
+        .tag-branding {
+            background-color: #FF9800;
+            color: white;
+        }
+        
+        /* Search Bar */
+        .search-container {
+            position: relative;
+            max-width: 500px;
+            margin: 0 auto 40px;
+        }
+        
+        .search-input {
+            width: 100%;
+            padding: 15px 50px 15px 20px;
+            border-radius: 50px;
+            border: 2px solid #e2e8f0;
+            font-size: 16px;
+            transition: all 0.3s ease;
+            background: white url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='24' height='24' viewBox='0 0 24 24' fill='none' stroke='%239C9C9C' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='8'%3E%3C/circle%3E%3Cline x1='21' y1='21' x2='16.65' y2='16.65'%3E%3C/line%3E%3C/svg%3E") no-repeat 95% center;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+        }
+        
+        .search-input:focus {
+            outline: none;
+            border-color: #8A2BE2;
+            box-shadow: 0 4px 20px rgba(138, 43, 226, 0.15);
+        }
+        
+        /* 3D Card Effect */
+        .card-3d {
+            transform-style: preserve-3d;
+            transition: transform 0.5s ease;
+        }
+        
+        .card-3d:hover {
+            transform: rotateY(10deg) rotateX(5deg) translateY(-10px);
+        }
+        
+        /* 3D Scene Container */
+        #3d-scene {
+            width: 100%;
+            height: 300px;
+            position: relative;
+            margin: 40px auto;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Project Counter */
+        .project-counter {
+            font-size: 1.2rem;
+            color: #6b7280;
+            margin-bottom: 20px;
+        }
+        
+        .project-counter span {
+            font-weight: bold;
+            color: #8A2BE2;
+        }
+        
+        /* No Results */
+        .no-results {
+            text-align: center;
+            padding: 40px;
+            grid-column: 1 / -1;
+        }
+        
+        /* Modal Styles */
+        .project-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.8);
+            z-index: 1000;
+            overflow-y: auto;
+            padding: 40px 20px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        .project-modal.active {
+            display: flex;
+            opacity: 1;
+        }
+        
+        .modal-content {
+            background: white;
+            border-radius: 16px;
+            max-width: 900px;
+            width: 100%;
+            margin: auto;
+            overflow: hidden;
+            box-shadow: 0 30px 60px rgba(0, 0, 0, 0.3);
+            transform: translateY(20px);
+            transition: transform 0.3s ease;
+        }
+        
+        .project-modal.active .modal-content {
+            transform: translateY(0);
+        }
+        
+        .modal-header {
+            padding: 25px 30px;
+            border-bottom: 1px solid #f0f0f0;
+            position: relative;
+        }
+        
+        .modal-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #333;
+            margin: 0;
+        }
+        
+        .close-modal {
+            position: absolute;
+            top: 25px;
+            right: 30px;
+            font-size: 1.5rem;
+            color: #777;
+            cursor: pointer;
+            transition: color 0.3s;
+        }
+        
+        .close-modal:hover {
+            color: #333;
+        }
+        
+        .modal-body {
+            padding: 30px;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 30px;
+        }
+        
+        @media (min-width: 768px) {
+            .modal-body {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        .modal-image {
+            border-radius: 12px;
+            overflow: hidden;
+            height: 300px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .modal-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .modal-details h3 {
+            font-size: 1.25rem;
+            margin-top: 0;
+            margin-bottom: 15px;
+            color: #333;
+        }
+        
+        .modal-details p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .modal-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .modal-tech span {
+            background: #f0f0f0;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            color: #555;
+        }
+        
+        .modal-footer {
+            padding: 20px 30px;
+            border-top: 1px solid #f0f0f0;
+            display: flex;
+            justify-content: flex-end;
+            gap: 15px;
+        }
+        
+        .modal-btn {
+            padding: 10px 20px;
+            border-radius: 8px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        .modal-btn-primary {
+            background: linear-gradient(90deg, #8A2BE2 0%, #FF10F0 100%);
+            color: white;
+            border: none;
+        }
+        
+        .modal-btn-primary:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+        
+        .modal-btn-secondary {
+            background: white;
+            color: #8A2BE2;
+            border: 1px solid #8A2BE2;
+        }
+        
+        .modal-btn-secondary:hover {
+            background: #f9f5ff;
+        }
+        
+        .modal-gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .modal-gallery img {
+            border-radius: 8px;
+            height: 100px;
+            width: 100%;
+            object-fit: cover;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+        
+        .modal-gallery img:hover {
+            transform: scale(1.05);
+        }
+        
+        .modal-features {
+            margin-top: 20px;
+        }
+        
+        .modal-features h4 {
+            font-size: 1rem;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .modal-features ul {
+            list-style-type: none;
+            padding-left: 0;
+        }
+        
+        .modal-features li {
+            padding: 5px 0;
+            color: #666;
+            display: flex;
+            align-items: flex-start;
+        }
+        
+        .modal-features li::before {
+            content: "✓";
+            color: #8A2BE2;
+            margin-right: 8px;
+        }
+    </style>
+</head>
+<body class="bg-creative-50">
+    <!-- Creative Background Shapes -->
+    <div class="creative-shape shape-purple floating"></div>
+    <div class="creative-shape shape-pink"></div>
+    <div class="creative-shape shape-blue"></div>
+    
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white/95 backdrop-blur-md z-50 border-b border-gray-100 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="flex items-center">
+                    <a href="#" class="flex items-center">
+                        <span class="text-xl sm:text-2xl font-bold text-dark-900 creative-heading">Work<span class="gradient-text">Verse</span></span>
+                    </a>
+                </div>
+                
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="index.html" class="nav-link text-dark-900 font-medium hover:text-primary-600">Inicio</a>
+                    <a href="portfolio.html" class="nav-link text-dark-900 font-medium hover:text-primary-600 text-creative-purple font-bold">Portfólio</a>
+                    <a href="sobre.html" class="nav-link text-dark-900 font-medium hover:text-primary-600">Sobre</a>
+                    <a href="#contato" class="bg-gradient-to-r from-creative-purple to-creative-pink text-white px-6 py-2 rounded-full font-medium hover:opacity-90 transition duration-300">Contato</a>
+                </div>
+                
+                <div class="md:hidden">
+                    <button id="menu-toggle" class="text-dark-900">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Mobile menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white py-3 px-4 border-t border-gray-100 shadow-lg">
+            <div class="flex flex-col space-y-3">
+                <a href="index.html" class="text-dark-900 font-medium hover:text-primary-600 py-2">Inicio</a>
+                <a href="beneficios.html" class="text-dark-900 font-medium hover:text-primary-600 py-2">Beneficios</a>
+                <a href="portfolio.html" class="text-dark-900 font-medium hover:text-primary-600 py-2 text-creative-purple font-bold">Portfólio</a>
+                <a href="sobre.html" class="text-dark-900 font-medium hover:text-primary-600 py-2">Sobre</a>
+                <a href="#contato" class="bg-gradient-to-r from-creative-purple to-creative-pink text-white px-6 py-2 rounded-full font-medium hover:opacity-90 transition duration-300 text-center mt-2">Contato</a>
+            </div>
+        </div>
+    </nav>  
+  
+    <!-- Hero Section - Portfolio -->
+    <section class="min-h-[60vh] flex items-center pt-32 pb-16 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        <div class="max-w-7xl mx-auto relative w-full">
+            <div class="text-center">
+                <h1 class="text-4xl sm:text-5xl md:text-6xl font-bold leading-tight text-dark-900 mb-6 creative-heading">
+                    Nosso <span class="gradient-text">Portfólio</span>
+                </h1>
+                <p class="text-lg text-gray-600 mb-8 max-w-2xl mx-auto">
+                    Explore nossa galeria de projetos criativos e inovadores. Cada trabalho representa nossa paixão por transformar ideias em experiências digitais extraordinárias.
+                </p>
+                
+                <!-- Interactive 3D Scene -->
+                <div id="3d-scene" class="hidden md:block"></div>
+                
+                <!-- Search Bar -->
+                <div class="search-container">
+                    <input type="text" id="search-projects" class="search-input" placeholder="Pesquisar projetos por nome, tecnologia ou categoria...">
+                </div>
+                
+                <div class="project-counter text-center">
+                    Mostrando <span id="visible-count">6</span> de <span id="total-count">6</span> projetos
+                </div>
+                
+                <div class="flex flex-wrap justify-center gap-3 mt-4 category-filter">
+                    <button class="filter-btn px-6 py-2 rounded-full border border-gray-300 hover:border-creative-purple transition duration-300 active" data-filter="all">Todos</button>
+                    <button class="filter-btn px-6 py-2 rounded-full border border-gray-300 hover:border-creative-purple transition duration-300" data-filter="web">Sites & Sistemas</button>
+                    <button class="filter-btn px-6 py-2 rounded-full border border-gray-300 hover:border-creative-purple transition duration-300" data-filter="app">Aplicativos</button>
+                    <button class="filter-btn px-6 py-2 rounded-full border border-gray-300 hover:border-creative-purple transition duration-300" data-filter="ecommerce">E-commerce</button>
+                    <button class="filter-btn px-6 py-2 rounded-full border border-gray-300 hover:border-creative-purple transition duration-300" data-filter="branding">Branding</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Grid -->
+    <section class="py-12 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 portfolio-container">
+                <!-- Projeto 1 - Web -->
+                <div class="portfolio-card rounded-2xl overflow-hidden web" data-category="web" data-name="Sistema de Gestão Empresarial" data-tech="React Node.js MongoDB">
+                    <div class="portfolio-image h-64 bg-gradient-to-br from-purple-100 to-pink-100 flex items-center justify-center relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="Sistema de Gestão" class="absolute h-full w-full object-cover">
+                        <span class="portfolio-tag tag-web absolute top-4 left-4">Website</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-dark-900 mb-2">Sistema de Gestão Empresarial</h3>
+                        <p class="text-gray-600 mb-4">Plataforma completa para gestão de negócios com dashboard analítico em tempo real.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs bg-gray-100 px-2 py-1 rounded">React</span>
+                            <span class="text-xs bg-gray-100 px-2 py-1 rounded">Node.js</span>
+                            <span class="text-xs bg-gray-100 px-2 py-1 rounded">MongoDB</span>
+                        </div>
+                        <button class="open-modal-btn text-creative-purple font-medium hover:underline flex items-center" data-modal="modal-1">
+                            Ver detalhes <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Projeto 2 - App -->
+                <div class="portfolio-card rounded-2xl overflow-hidden app" data-category="app" data-name="App Financeiro Pessoal" data-tech="Flutter Firebase">
+                    <div class="portfolio-image h-64 bg-gradient-to-br from-blue-50 to-cyan-100 flex items-center justify-center relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1607252650355-f7fd0460ccdb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="App Financeiro" class="absolute h-full w-full object-cover">
+                        <span class="portfolio-tag tag-app absolute top-4 left-4">Mobile App</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-dark-900 mb-2">App Financeiro Pessoal</h3>
+                        <p class="text-gray-600 mb-4">Aplicativo para controle financeiro pessoal com integração bancária e relatórios inteligentes.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs bg-gray-100 px-2 py-1 rounded">Flutter</span>
+                            <span class="text-xs bg-gray-100 px-2 py-1 rounded">Firebase</span>
+                            <span class="text-xs bg-gray-100 px-2 py-1 rounded">API Banking</span>
+                        </div>
+                        <button class="open-modal-btn text-creative-purple font-medium hover:underline flex items-center" data-modal="modal-2">
+                            Ver detalhes <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Projeto 3 - E-commerce -->
+                <div class="portfolio-card rounded-2xl overflow-hidden ecommerce" data-category="ecommerce" data-name="Loja Online de Moda" data-tech="Shopify Liquid JavaScript">
+                    <div class="portfolio-image h-64 bg-gradient-to-br from-cyan-50 to-blue-100 flex items-center justify-center relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="Loja Online" class="absolute h-full w-full object-cover">
+                        <span class="portfolio-tag tag-ecommerce absolute top-4 left-4">E-commerce</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-dark-900 mb-2">Loja Online de Moda</h3>
+                        <p class="text-gray-600 mb-4">Plataforma de e-commerce com experiência de compra otimizada e integração com marketplaces.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs bg-gray-100 px-2 py-1 rounded">Shopify</span>
+                            <span class="text-xs bg-gray-100 px-2 py-1 rounded">Liquid</span>
+                            <span class="text-xs bg-gray-100 px-2 py-1 rounded">JavaScript</span>
+                        </div>
+                        <button class="open-modal-btn text-creative-purple font-medium hover:underline flex items-center" data-modal="modal-3">
+                            Ver detalhes <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Projeto 4 - Branding -->
+                <div class="portfolio-card rounded-2xl overflow-hidden branding" data-category="branding" data-name="Identidade Visual - FoodTech" data-tech="Adobe Illustrator Photoshop">
+                    <div class="portfolio-image h-64 bg-gradient-to-br from-yellow-50 to-orange-100 flex items-center justify-center relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="Identidade Visual" class="absolute h-full w-full object-cover">
+                        <span class="portfolio-tag tag-branding absolute top-4 left-4">Branding</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-dark-900 mb-2">Identidade Visual - FoodTech</h3>
+                        <p class="text-gray-600 mb-4">Desenvolvimento completo de identidade visual para startup de tecnologia alimentícia.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs bg-gray-100 px-2 py-1 rounded">Illustrator</span>
+                            <span class="text-xs bg-gray-100 px-2 py-1 rounded">Photoshop</span>
+                            <span class="text-xs bg-gray-100 px-2 py-1 rounded">Branding</span>
+                        </div>
+                        <button class="open-modal-btn text-creative-purple font-medium hover:underline flex items-center" data-modal="modal-4">
+                            Ver detalhes <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Projeto 5 - Web -->
+                <div class="portfolio-card rounded-2xl overflow-hidden web" data-category="web" data-name="Portal Educacional" data-tech="Vue.js Laravel MySQL">
+                    <div class="portfolio-image h-64 bg-gradient-to-br from-purple-100 to-pink-100 flex items-center justify-center relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1469&q=80" alt="Portal Educacional" class="absolute h-full w-full object-cover">
+                        <span class="portfolio-tag tag-web absolute top-4 left-4">Sistema Web</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-dark-900 mb-2">Portal Educacional</h3>
+                        <p class="text-gray-600 mb-4">Plataforma de ensino a distância com aulas ao vivo, fóruns e sistema de avaliação.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs bg-gray-100 px-2 py-1 rounded">Vue.js</span>
+                            <span class="text-xs bg-gray-100 px-2 py-1 rounded">Laravel</span>
+                            <span class="text-xs bg-gray-100 px-2 py-1 rounded">MySQL</span>
+                        </div>
+                        <button class="open-modal-btn text-creative-purple font-medium hover:underline flex items-center" data-modal="modal-5">
+                            Ver detalhes <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Projeto 6 - App -->
+                <div class="portfolio-card rounded-2xl overflow-hidden app" data-category="app" data-name="App de Monitoramento de Saúde" data-tech="React Native GraphQL AWS">
+                    <div class="portfolio-image h-64 bg-gradient-to-br from-blue-50 to-cyan-100 flex items-center justify-center relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="App de Saúde" class="absolute h-full w-full object-cover">
+                        <span class="portfolio-tag tag-app absolute top-4 left-4">Mobile App</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-dark-900 mb-2">App de Monitoramento de Saúde</h3>
+                        <p class="text-gray-600 mb-4">Aplicativo para acompanhamento de métricas de saúde com integração a wearables.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs bg-gray-100 px-2 py-1 rounded">React Native</span>
+                            <span class="text-xs bg-gray-100 px-2 py-1 rounded">GraphQL</span>
+                            <span class="text-xs bg-gray-100 px-2 py-1 rounded">AWS</span>
+                        </div>
+                        <button class="open-modal-btn text-creative-purple font-medium hover:underline flex items-center" data-modal="modal-6">
+                            Ver detalhes <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Projeto 7 - E-commerce -->
+                <div class="portfolio-card rounded-2xl overflow-hidden ecommerce" data-category="ecommerce" data-name="Loja de Eletrônicos" data-tech="WooCommerce WordPress PHP">
+                    <div class="portfolio-image h-64 bg-gradient-to-br from-cyan-50 to-blue-100 flex items-center justify-center relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1556228578-8c89e6adf883?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="Loja de Eletrônicos" class="absolute h-full w-full object-cover">
+                        <span class="portfolio-tag tag-ecommerce absolute top-4 left-4">E-commerce</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-dark-900 mb-2">Loja de Eletrônicos</h3>
+                        <p class="text-gray-600 mb-4">E-commerce especializado em produtos eletrônicos com sistema de avaliações.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs bg-gray-100 px-2 py-1 rounded">WooCommerce</span>
+                            <span class="text-xs bg-gray-100 px-2 py-1 rounded">WordPress</span>
+                            <span class="text-xs bg-gray-100 px-2 py-1 rounded">PHP</span>
+                        </div>
+                        <button class="open-modal-btn text-creative-purple font-medium hover:underline flex items-center" data-modal="modal-7">
+                            Ver detalhes <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Projeto 8 - Branding -->
+                <div class="portfolio-card rounded-2xl overflow-hidden branding" data-category="branding" data-name="Rebranding Corporativo" data-tech="Adobe XD Illustrator">
+                    <div class="portfolio-image h-64 bg-gradient-to-br from-yellow-50 to-orange-100 flex items-center justify-center relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1567443024551-f3e3a7b9d41e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="Rebranding Corporativo" class="absolute h-full w-full object-cover">
+                        <span class="portfolio-tag tag-branding absolute top-4 left-4">Branding</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-dark-900 mb-2">Rebranding Corporativo</h3>
+                        <p class="text-gray-600 mb-4">Atualização completa da identidade visual para empresa de tecnologia.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs bg-gray-100 px-2 py-1 rounded">Adobe XD</span>
+                            <span class="text-xs bg-gray-100 px-2 py-1 rounded">Illustrator</span>
+                            <span class="text-xs bg-gray-100 px-2 py-1 rounded">Design System</span>
+                        </div>
+                        <button class="open-modal-btn text-creative-purple font-medium hover:underline flex items-center" data-modal="modal-8">
+                            Ver detalhes <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+                
+                <!-- Projeto 9 - Web -->
+                <div class="portfolio-card rounded-2xl overflow-hidden web" data-category="web" data-name="Plataforma de Streaming" data-tech="Next.js TailwindCSS Firebase">
+                    <div class="portfolio-image h-64 bg-gradient-to-br from-purple-100 to-pink-100 flex items-center justify-center relative overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1472&q=80" alt="Plataforma de Streaming" class="absolute h-full w-full object-cover">
+                        <span class="portfolio-tag tag-web absolute top-4 left-4">Plataforma Web</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-dark-900 mb-2">Plataforma de Streaming</h3>
+                        <p class="text-gray-600 mb-4">Sistema de streaming de vídeo com recomendações personalizadas.</p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <span class="text-xs bg-gray-100 px-2 py-1 rounded">Next.js</span>
+                            <span class="text-xs bg-gray-100 px-2 py-1 rounded">TailwindCSS</span>
+                            <span class="text-xs bg-gray-100 px-2 py-1 rounded">Firebase</span>
+                        </div>
+                        <button class="open-modal-btn text-creative-purple font-medium hover:underline flex items-center" data-modal="modal-9">
+                            Ver detalhes <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="no-results hidden text-center py-12">
+                <div class="max-w-md mx-auto">
+                    <img src="https://cdn-icons-png.flaticon.com/512/4076/4076478.png" alt="Nenhum resultado encontrado" class="w-32 h-32 mx-auto mb-6 opacity-70">
+                    <h3 class="text-xl font-bold text-gray-600 mb-2">Nenhum projeto encontrado</h3>
+                    <p class="text-gray-500 mb-6">Sua busca não retornou resultados. Tente outros termos ou categorias.</p>
+                    <button id="reset-search" class="px-6 py-2 rounded-full border border-gray-300 text-gray-600 hover:bg-gray-50 transition duration-300">
+                        Limpar busca
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto bg-gradient-to-r from-dark-900 to-gray-800 rounded-2xl p-8 text-white relative overflow-hidden">
+            <div class="absolute -right-20 -top-20 w-64 h-64 bg-white/10 rounded-full"></div>
+            <div class="absolute -left-20 -bottom-20 w-64 h-64 bg-white/10 rounded-full"></div>
+            
+            <div class="relative z-10 text-center max-w-3xl mx-auto">
+                <h3 class="text-2xl md:text-3xl font-bold mb-4 creative-heading">Pronto para transformar sua ideia em realidade?</h3>
+                <p class="text-white/90 mb-6">Nossa equipe está pronta para entender suas necessidades e desenvolver a solução perfeita para seu negócio.</p>
+                
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="https://wa.me/5541984761252?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20os%20serviços%20da%20WorkVerse" 
+                       class="bg-white text-dark-900 px-8 py-3 rounded-full font-medium hover:bg-gray-100 transition duration-300 shadow-lg hover:shadow-xl flex items-center justify-center">
+                        <i class="fab fa-whatsapp mr-2 text-lg"></i> Falar com Especialista
+                    </a>
+                    <a href="beneficios.html" class="border-2 border-white text-white px-8 py-3 rounded-full font-medium hover:bg-white hover:text-dark-900 transition duration-300">
+                        Ver nossos serviços
+                    </a>
+                </div>
+                
+                <p class="text-sm text-white/70 mt-4">
+                    <i class="fas fa-lock mr-1"></i> Garantia de satisfação ou seu dinheiro de volta nos primeiros 30 dias
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-dark-900 text-white py-12 sm:py-16 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 sm:gap-12">
+                <div>
+                    <h3 class="text-2xl font-bold mb-6 creative-heading">Work<span class="text-creative-purple">Verse</span></h3>
+                    <p class="text-gray-400 mb-6">Transformando ideias em experiências digitais extraordinárias.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white transition duration-300">
+                            <i class="fab fa-behance"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-white mb-6 creative-heading">Serviços</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Design Criativo</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Desenvolvimento Web</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">E-Commerce Premium</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Aplicativos Mobile</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h4 class="font-bold text-white mb-6 creative-heading">Empresa</h4>
+                    <ul class="space-y-3">
+                        <li><a href="sobre.html" class="text-gray-400 hover:text-white transition duration-300">Sobre Nós</a></li>
+                        <li><a href="portfolio.html" class="text-gray-400 hover:text-white transition duration-300">Portfólio</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-white transition duration-300">Blog (em breve)</a></li>
+                        <li><a href="#contato" class="text-gray-400 hover:text-white transition duration-300">Contato</a></li>
+                    </ul>
+                </div>
+                
+                <div id="contato">
+                    <h4 class="font-bold text-white mb-6 creative-heading">Contato</h4>
+                    <ul class="space-y-3">
+                        <li class="flex items-center text-gray-400">
+                            <i class="fas fa-envelope mr-3"></i> contato@workverse.com
+                        </li>
+                        <li class="flex items-center text-gray-400">
+                            <i class="fas fa-phone mr-3"></i> (41) 98476-1252
+                        </li>
+                        <li class="flex items-center text-gray-400">
+                            <i class="fas fa-map-marker-alt mr-3"></i> Curitiba, PR
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <p class="text-gray-400 mb-4 md:mb-0">© 2025 WorkVerse. Todos os direitos reservados.</p>
+                <div class="flex space-x-6">
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">Política de Privacidade</a>
+                    <a href="#" class="text-gray-400 hover:text-white transition duration-300">Termos de Serviço</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <!-- Modals for each project -->
+    <!-- Modal 1 -->
+    <div id="modal-1" class="project-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Sistema de Gestão Empresarial</h2>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="modal-image">
+                    <img src="https://images.unsplash.com/photo-1551434678-e076c223a692?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="Sistema de Gestão">
+                </div>
+                <div class="modal-details">
+                    <h3>Sobre o Projeto</h3>
+                    <p>Plataforma completa para gestão de negócios com dashboard analítico em tempo real, desenvolvida para otimizar processos internos e melhorar a tomada de decisão.</p>
+                    
+                    <div class="modal-tech">
+                        <span>React</span>
+                        <span>Node.js</span>
+                        <span>MongoDB</span>
+                        <span>Redux</span>
+                        <span>Chart.js</span>
+                    </div>
+                    
+                    <div class="modal-features">
+                        <h4>Principais Funcionalidades</h4>
+                        <ul>
+                            <li>Dashboard interativo com métricas em tempo real</li>
+                            <li>Gestão de estoque e fornecedores</li>
+                            <li>Controle financeiro integrado</li>
+                            <li>Relatórios personalizáveis</li>
+                            <li>Integração com APIs de pagamento</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="modal-btn modal-btn-secondary close-modal">Fechar</button>
+                <a href="https://wa.me/5541984761252?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20o%20Sistema%20de%20Gestão%20Empresarial" class="modal-btn modal-btn-primary">
+                    <i class="fab fa-whatsapp mr-2"></i> Quero um projeto similar
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal 2 -->
+    <div id="modal-2" class="project-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">App Financeiro Pessoal</h2>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="modal-image">
+                    <img src="https://images.unsplash.com/photo-1607252650355-f7fd0460ccdb?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="App Financeiro">
+                </div>
+                <div class="modal-details">
+                    <h3>Sobre o Projeto</h3>
+                    <p>Aplicativo para controle financeiro pessoal com integração bancária e relatórios inteligentes, ajudando usuários a gerenciar suas finanças de forma eficiente.</p>
+                    
+                    <div class="modal-tech">
+                        <span>Flutter</span>
+                        <span>Firebase</span>
+                        <span>API Banking</span>
+                        <span>Dart</span>
+                        <span>Google Cloud</span>
+                    </div>
+                    
+                    <div class="modal-features">
+                        <h4>Principais Funcionalidades</h4>
+                        <ul>
+                            <li>Sincronização automática com contas bancárias</li>
+                            <li>Categorização inteligente de gastos</li>
+                            <li>Orçamentos personalizados</li>
+                            <li>Relatórios visuais e exportáveis</li>
+                            <li>Alertas de gastos excessivos</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="modal-btn modal-btn-secondary close-modal">Fechar</button>
+                <a href="https://wa.me/5541984761252?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20o%20App%20Financeiro%20Pessoal" class="modal-btn modal-btn-primary">
+                    <i class="fab fa-whatsapp mr-2"></i> Quero um projeto similar
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal 3 -->
+    <div id="modal-3" class="project-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Loja Online de Moda</h2>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="modal-image">
+                    <img src="https://images.unsplash.com/photo-1555529669-e69e7aa0ba9a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="Loja Online">
+                </div>
+                <div class="modal-details">
+                    <h3>Sobre o Projeto</h3>
+                    <p>Plataforma de e-commerce com experiência de compra otimizada e integração com marketplaces, desenvolvida para uma marca de moda premium.</p>
+                    
+                    <div class="modal-tech">
+                        <span>Shopify</span>
+                        <span>Liquid</span>
+                        <span>JavaScript</span>
+                        <span>CSS3</span>
+                        <span>Google Analytics</span>
+                    </div>
+                    
+                    <div class="modal-features">
+                        <h4>Principais Funcionalidades</h4>
+                        <ul>
+                            <li>Vitrine de produtos com visualização 360°</li>
+                            <li>Sistema de recomendação personalizado</li>
+                            <li>Integração com Mercado Livre e Amazon</li>
+                            <li>Checkout otimizado em uma página</li>
+                            <li>Painel de controle para gestão de pedidos</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="modal-btn modal-btn-secondary close-modal">Fechar</button>
+                <a href="https://wa.me/5541984761252?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20a%20Loja%20Online%20de%20Moda" class="modal-btn modal-btn-primary">
+                    <i class="fab fa-whatsapp mr-2"></i> Quero um projeto similar
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal 4 -->
+    <div id="modal-4" class="project-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Identidade Visual - FoodTech</h2>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="modal-image">
+                    <img src="https://images.unsplash.com/photo-1542744173-8e7e53415bb0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="Identidade Visual">
+                </div>
+                <div class="modal-details">
+                    <h3>Sobre o Projeto</h3>
+                    <p>Desenvolvimento completo de identidade visual para startup de tecnologia alimentícia, incluindo logo, paleta de cores, tipografia e aplicações.</p>
+                    
+                    <div class="modal-tech">
+                        <span>Illustrator</span>
+                        <span>Photoshop</span>
+                        <span>Branding</span>
+                        <span>Design System</span>
+                        <span>UI/UX</span>
+                    </div>
+                    
+                    <div class="modal-features">
+                        <h4>Elementos Desenvolvidos</h4>
+                        <ul>
+                            <li>Logotipo e variações</li>
+                            <li>Manual de identidade visual</li>
+                            <li>Paleta de cores corporativa</li>
+                            <li>Tipografia personalizada</li>
+                            <li>Aplicações em materiais impressos e digitais</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="modal-btn modal-btn-secondary close-modal">Fechar</button>
+                <a href="https://wa.me/5541984761252?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20Identidade%20Visual" class="modal-btn modal-btn-primary">
+                    <i class="fab fa-whatsapp mr-2"></i> Quero um projeto similar
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal 5 -->
+    <div id="modal-5" class="project-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Portal Educacional</h2>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="modal-image">
+                    <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1469&q=80" alt="Portal Educacional">
+                </div>
+                <div class="modal-details">
+                    <h3>Sobre o Projeto</h3>
+                    <p>Plataforma de ensino a distância com aulas ao vivo, fóruns e sistema de avaliação, desenvolvida para uma instituição de ensino superior.</p>
+                    
+                    <div class="modal-tech">
+                        <span>Vue.js</span>
+                        <span>Laravel</span>
+                        <span>MySQL</span>
+                        <span>WebRTC</span>
+                        <span>REST API</span>
+                    </div>
+                    
+                    <div class="modal-features">
+                        <h4>Principais Funcionalidades</h4>
+                        <ul>
+                            <li>Transmissão ao vivo de aulas com interação</li>
+                            <li>Sistema de avaliação e certificados</li>
+                            <li>Fóruns de discussão por disciplina</li>
+                            <li>Biblioteca virtual de materiais</li>
+                            <li>Painel de controle para professores</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="modal-btn modal-btn-secondary close-modal">Fechar</button>
+                <a href="https://wa.me/5541984761252?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20o%20Portal%20Educacional" class="modal-btn modal-btn-primary">
+                    <i class="fab fa-whatsapp mr-2"></i> Quero um projeto similar
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal 6 -->
+    <div id="modal-6" class="project-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">App de Monitoramento de Saúde</h2>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="modal-image">
+                    <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="App de Saúde">
+                </div>
+                <div class="modal-details">
+                    <h3>Sobre o Projeto</h3>
+                    <p>Aplicativo para acompanhamento de métricas de saúde com integração a wearables, desenvolvido para uma startup de saúde digital.</p>
+                    
+                    <div class="modal-tech">
+                        <span>React Native</span>
+                        <span>GraphQL</span>
+                        <span>AWS</span>
+                        <span>Apple HealthKit</span>
+                        <span>Google Fit</span>
+                    </div>
+                    
+                    <div class="modal-features">
+                        <h4>Principais Funcionalidades</h4>
+                        <ul>
+                            <li>Monitoramento de batimentos cardíacos</li>
+                            <li>Acompanhamento de atividades físicas</li>
+                            <li>Integração com wearables e smartwatches</li>
+                            <li>Alertas de saúde personalizados</li>
+                            <li>Compartilhamento de dados com médicos</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="modal-btn modal-btn-secondary close-modal">Fechar</button>
+                <a href="https://wa.me/5541984761252?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20o%20App%20de%20Monitoramento%20de%20Saúde" class="modal-btn modal-btn-primary">
+                    <i class="fab fa-whatsapp mr-2"></i> Quero um projeto similar
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal 7 -->
+    <div id="modal-7" class="project-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Loja de Eletrônicos</h2>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="modal-image">
+                    <img src="https://images.unsplash.com/photo-1556228578-8c89e6adf883?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="Loja de Eletrônicos">
+                </div>
+                <div class="modal-details">
+                    <h3>Sobre o Projeto</h3>
+                    <p>E-commerce especializado em produtos eletrônicos com sistema de avaliações, desenvolvido para uma loja física expandir para o digital.</p>
+                    
+                    <div class="modal-tech">
+                        <span>WooCommerce</span>
+                        <span>WordPress</span>
+                        <span>PHP</span>
+                        <span>MySQL</span>
+                        <span>Payment Gateway</span>
+                    </div>
+                    
+                    <div class="modal-features">
+                        <h4>Principais Funcionalidades</h4>
+                        <ul>
+                            <li>Catálogo com filtros avançados</li>
+                            <li>Sistema de avaliação de produtos</li>
+                            <li>Integração com estoque físico</li>
+                            <li>Comparador de produtos</li>
+                            <li>Checkout seguro com múltiplas opções</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="modal-btn modal-btn-secondary close-modal">Fechar</button>
+                <a href="https://wa.me/5541984761252?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20a%20Loja%20de%20Eletrônicos" class="modal-btn modal-btn-primary">
+                    <i class="fab fa-whatsapp mr-2"></i> Quero um projeto similar
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal 8 -->
+    <div id="modal-8" class="project-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Rebranding Corporativo</h2>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="modal-image">
+                    <img src="https://images.unsplash.com/photo-1567443024551-f3e3a7b9d41e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1470&q=80" alt="Rebranding Corporativo">
+                </div>
+                <div class="modal-details">
+                    <h3>Sobre o Projeto</h3>
+                    <p>Atualização completa da identidade visual para empresa de tecnologia, incluindo novo posicionamento de marca e aplicações em todos os touchpoints.</p>
+                    
+                    <div class="modal-tech">
+                        <span>Adobe XD</span>
+                        <span>Illustrator</span>
+                        <span>Design System</span>
+                        <span>Brand Strategy</span>
+                        <span>UI/UX</span>
+                    </div>
+                    
+                    <div class="modal-features">
+                        <h4>Elementos Desenvolvidos</h4>
+                        <ul>
+                            <li>Nova identidade visual e manual da marca</li>
+                            <li>Sistema de design para produtos digitais</li>
+                            <li>Materiais de comunicação corporativa</li>
+                            <li>Design de apresentações institucionais</li>
+                            <li>Diretrizes para aplicação da marca</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="modal-btn modal-btn-secondary close-modal">Fechar</button>
+                <a href="https://wa.me/5541984761252?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20Rebranding%20Corporativo" class="modal-btn modal-btn-primary">
+                    <i class="fab fa-whatsapp mr-2"></i> Quero um projeto similar
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Modal 9 -->
+    <div id="modal-9" class="project-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Plataforma de Streaming</h2>
+                <span class="close-modal">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="modal-image">
+                    <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1472&q=80" alt="Plataforma de Streaming">
+                </div>
+                <div class="modal-details">
+                    <h3>Sobre o Projeto</h3>
+                    <p>Sistema de streaming de vídeo com recomendações personalizadas, desenvolvido para uma produtora de conteúdo independente.</p>
+                    
+                    <div class="modal-tech">
+                        <span>Next.js</span>
+                        <span>TailwindCSS</span>
+                        <span>Firebase</span>
+                        <span>Video.js</span>
+                        <span>Machine Learning</span>
+                    </div>
+                    
+                    <div class="modal-features">
+                        <h4>Principais Funcionalidades</h4>
+                        <ul>
+                            <li>Player de vídeo adaptativo</li>
+                            <li>Sistema de recomendação baseado em IA</li>
+                            <li>Perfis de usuário personalizados</li>
+                            <li>Download de conteúdo para offline</li>
+                            <li>Painel de controle de conteúdo</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="modal-btn modal-btn-secondary close-modal">Fechar</button>
+                <a href="https://wa.me/5541984761252?text=Olá,%20gostaria%20de%20saber%20mais%20sobre%20a%20Plataforma%20de%20Streaming" class="modal-btn modal-btn-primary">
+                    <i class="fab fa-whatsapp mr-2"></i> Quero um projeto similar
+                </a>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Mobile menu toggle
+        const menuToggle = document.getElementById('menu-toggle');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    if (!mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                    }
+                }
+            });
+        });
+        
+        // Portfolio Filter
+        const filterButtons = document.querySelectorAll('.filter-btn');
+        const portfolioItems = document.querySelectorAll('.portfolio-card');
+        const totalCount = document.getElementById('total-count');
+        const visibleCount = document.getElementById('visible-count');
+        const noResults = document.querySelector('.no-results');
+        const resetSearch = document.getElementById('reset-search');
+        
+        // Set total count
+        totalCount.textContent = portfolioItems.length;
+        
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Remove active class from all buttons
+                filterButtons.forEach(btn => btn.classList.remove('active'));
+                
+                // Add active class to clicked button
+                button.classList.add('active');
+                
+                const filterValue = button.getAttribute('data-filter');
+                filterProjects(filterValue);
+            });
+        });
+        
+        // Search functionality
+        const searchInput = document.getElementById('search-projects');
+        searchInput.addEventListener('input', (e) => {
+            const searchTerm = e.target.value.toLowerCase();
+            filterProjects('all', searchTerm);
+        });
+        
+        // Reset search
+        resetSearch.addEventListener('click', () => {
+            searchInput.value = '';
+            filterProjects('all');
+        });
+        
+        // Filter projects by category and search term
+        function filterProjects(category, searchTerm = '') {
+            let visibleItems = 0;
+            
+            portfolioItems.forEach(item => {
+                const itemCategory = item.getAttribute('data-category');
+                const itemName = item.getAttribute('data-name').toLowerCase();
+                const itemTech = item.getAttribute('data-tech').toLowerCase();
+                
+                const matchesCategory = category === 'all' || itemCategory === category;
+                const matchesSearch = searchTerm === '' || 
+                                     itemName.includes(searchTerm) || 
+                                     itemTech.includes(searchTerm);
+                
+                if (matchesCategory && matchesSearch) {
+                    item.style.display = 'block';
+                    visibleItems++;
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+            
+            // Update counter
+            visibleCount.textContent = visibleItems;
+            
+            // Show no results message if needed
+            if (visibleItems === 0) {
+                noResults.classList.remove('hidden');
+            } else {
+                noResults.classList.add('hidden');
+            }
+        }
+        
+        // Modal functionality
+        const modalBtns = document.querySelectorAll('.open-modal-btn');
+        const modals = document.querySelectorAll('.project-modal');
+        const closeBtns = document.querySelectorAll('.close-modal');
+        
+        // Open modal
+        modalBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const modalId = btn.getAttribute('data-modal');
+                const modal = document.getElementById(modalId);
+                
+                if (modal) {
+                    modal.classList.add('active');
+                    document.body.style.overflow = 'hidden';
+                }
+            });
+        });
+        
+        // Close modal
+        closeBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                const modal = btn.closest('.project-modal');
+                if (modal) {
+                    modal.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        });
+        
+        // Close when clicking outside modal content
+        modals.forEach(modal => {
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) {
+                    modal.classList.remove('active');
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        });
+        
+        // Close with ESC key
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                modals.forEach(modal => {
+                    if (modal.classList.contains('active')) {
+                        modal.classList.remove('active');
+                        document.body.style.overflow = 'auto';
+                    }
+                });
+            }
+        });
+        
+        // Initialize 3D scene
+        function init3DScene() {
+            // Only initialize on desktop
+            if (window.innerWidth < 768) return;
+            
+            const sceneContainer = document.getElementById('3d-scene');
+            if (!sceneContainer) return;
+            
+            sceneContainer.classList.remove('hidden');
+            
+            // Scene setup
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(75, sceneContainer.clientWidth / sceneContainer.clientHeight, 0.1, 1000);
+            const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+            renderer.setSize(sceneContainer.clientWidth, sceneContainer.clientHeight);
+            sceneContainer.appendChild(renderer.domElement);
+            
+            // Add floating 3D objects
+            const geometry = new THREE.IcosahedronGeometry(2, 0);
+            const material = new THREE.MeshPhongMaterial({ 
+                color: 0x8A2BE2,
+                emissive: 0x8A2BE2,
+                emissiveIntensity: 0.2,
+                shininess: 100,
+                transparent: true,
+                opacity: 0.9
+            });
+            
+            const cube = new THREE.Mesh(geometry, material);
+            scene.add(cube);
+            
+            // Add lights
+            const ambientLight = new THREE.AmbientLight(0xffffff, 0.5);
+            scene.add(ambientLight);
+            
+            const directionalLight = new THREE.DirectionalLight(0xffffff, 0.8);
+            directionalLight.position.set(1, 1, 1);
+            scene.add(directionalLight);
+            
+            const pointLight = new THREE.PointLight(0xFF10F0, 1, 100);
+            pointLight.position.set(5, 5, 5);
+            scene.add(pointLight);
+            
+            // Position camera
+            camera.position.z = 5;
+            
+            // Add orbit controls
+            const controls = new THREE.OrbitControls(camera, renderer.domElement);
+            controls.enableZoom = false;
+            controls.enablePan = false;
+            controls.autoRotate = true;
+            controls.autoRotateSpeed = 1;
+            
+            // Animation loop
+            function animate() {
+                requestAnimationFrame(animate);
+                
+                cube.rotation.x += 0.005;
+                cube.rotation.y += 0.01;
+                
+                controls.update();
+                renderer.render(scene, camera);
+            }
+            
+            // Handle window resize
+            window.addEventListener('resize', () => {
+                camera.aspect = sceneContainer.clientWidth / sceneContainer.clientHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(sceneContainer.clientWidth, sceneContainer.clientHeight);
+            });
+            
+            animate();
+        }
+        
+        // Initialize when page loads
+        window.addEventListener('load', () => {
+            init3DScene();
+            
+            // Animation on scroll
+            const animateOnScroll = () => {
+                const elements = document.querySelectorAll('.portfolio-card');
+                
+                elements.forEach(element => {
+                    const elementPosition = element.getBoundingClientRect().top;
+                    const screenPosition = window.innerHeight / 1.2;
+                    
+                    if (elementPosition < screenPosition) {
+                        element.style.opacity = '1';
+                        element.style.transform = 'translateY(0)';
+                    }
+                });
+            };
+            
+            // Set initial state for animated elements
+            document.querySelectorAll('.portfolio-card').forEach(el => {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(20px)';
+                el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            });
+            
+            // Run animation on scroll
+            window.addEventListener('scroll', animateOnScroll);
+            // Run once on load
+            animateOnScroll();
+        });
+    </script>
+</body>
+</html>
